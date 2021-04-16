@@ -1,12 +1,10 @@
 # msgraph.go
 
-[![](https://github.com/yaegashi/msgraph.go/workflows/go%20generate%20test/badge.svg?branch=master)](https://github.com/yaegashi/msgraph.go/actions)
-
 |v1.0|beta|
 |---|---|
-|[![pkg.go.dev](https://pkg.go.dev/badge/github.com/yaegashi/msgraph.go/v1.0)](https://pkg.go.dev/github.com/yaegashi/msgraph.go/v1.0)|[![pkg.go.dev](https://pkg.go.dev/badge/github.com/yaegashi/msgraph.go/beta)](https://pkg.go.dev/github.com/yaegashi/msgraph.go/beta)|
+|[![pkg.go.dev](https://pkg.go.dev/badge/github.com/nais/msgraph.go/v1.0)](https://pkg.go.dev/github.com/nais/msgraph.go/v1.0)
 
-(The online references at pkg.go.dev above are not shown due to huge size of packages - [#23](https://github.com/yaegashi/msgraph.go/issues/23))
+(The online references at pkg.go.dev above are not shown due to huge size of packages - [#23](https://github.com/nais/msgraph.go/issues/23))
 
 ## Introduction
 
@@ -22,9 +20,9 @@ heavily relying on C# and non-portable .NET Framework.
 
 ## v0.x.x releases
 
-See [GitHub releases](https://github.com/yaegashi/msgraph.go/releases)
+See [GitHub releases](https://github.com/nais/msgraph.go/releases)
 for all release tags and release notes,
-and [pkg.go.dev](https://pkg.go.dev/mod/github.com/yaegashi/msgraph.go)
+and [pkg.go.dev](https://pkg.go.dev/mod/github.com/nais/msgraph.go)
 for all Go module versions available for your applications.
 
 Until v1.0.0, all types of changes might be included in every release:
@@ -35,11 +33,11 @@ bug fixes, new features, even incompatible API updates.
 You can choose API version when importing `msgraph` package:
 
 ```go
-import msgraph "github.com/yaegashi/msgraph.go/v1.0"
+import msgraph "github.com/nais/msgraph.go/v1.0"
 ```
 
 ```go
-import msgraph "github.com/yaegashi/msgraph.go/beta"
+import msgraph "github.com/nais/msgraph.go/beta"
 ```
 
 You could benefit from better IDE assisted coding experience

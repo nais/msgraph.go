@@ -14,6 +14,16 @@ type Security struct {
 	SecureScores []SecureScore `json:"secureScores,omitempty"`
 }
 
+// SecurityResource undocumented
+type SecurityResource struct {
+	// Object is the base model of SecurityResource
+	Object
+	// Resource undocumented
+	Resource *string `json:"resource,omitempty"`
+	// ResourceType undocumented
+	ResourceType *SecurityResourceType `json:"resourceType,omitempty"`
+}
+
 // SecurityVendorInformation undocumented
 type SecurityVendorInformation struct {
 	// Object is the base model of SecurityVendorInformation

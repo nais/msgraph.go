@@ -16,24 +16,38 @@ type File struct {
 	ProcessingMetadata *bool `json:"processingMetadata,omitempty"`
 }
 
+// FileAssessmentRequestObject undocumented
+type FileAssessmentRequestObject struct {
+	// ThreatAssessmentRequestObject is the base model of FileAssessmentRequestObject
+	ThreatAssessmentRequestObject
+	// ContentData undocumented
+	ContentData *string `json:"contentData,omitempty"`
+	// FileName undocumented
+	FileName *string `json:"fileName,omitempty"`
+}
+
 // FileAttachment undocumented
 type FileAttachment struct {
 	// Attachment is the base model of FileAttachment
 	Attachment
+	// ContentBytes undocumented
+	ContentBytes *Binary `json:"contentBytes,omitempty"`
 	// ContentID undocumented
 	ContentID *string `json:"contentId,omitempty"`
 	// ContentLocation undocumented
 	ContentLocation *string `json:"contentLocation,omitempty"`
-	// ContentBytes undocumented
-	ContentBytes *Binary `json:"contentBytes,omitempty"`
 }
 
-// FileEncryptionInfo undocumented
+// FileEncryptionInfo Contains properties for file encryption information for the content version of a line of business app.
 type FileEncryptionInfo struct {
 	// Object is the base model of FileEncryptionInfo
 	Object
 	// EncryptionKey The key used to encrypt the file content.
 	EncryptionKey *Binary `json:"encryptionKey,omitempty"`
+	// FileDigest The file digest prior to encryption.
+	FileDigest *Binary `json:"fileDigest,omitempty"`
+	// FileDigestAlgorithm The file digest algorithm.
+	FileDigestAlgorithm *string `json:"fileDigestAlgorithm,omitempty"`
 	// InitializationVector The initialization vector used for the encryption algorithm.
 	InitializationVector *Binary `json:"initializationVector,omitempty"`
 	// Mac The hash of the encrypted file content + IV (content hash).
@@ -42,10 +56,6 @@ type FileEncryptionInfo struct {
 	MacKey *Binary `json:"macKey,omitempty"`
 	// ProfileIdentifier The the profile identifier.
 	ProfileIdentifier *string `json:"profileIdentifier,omitempty"`
-	// FileDigest The file digest prior to encryption.
-	FileDigest *Binary `json:"fileDigest,omitempty"`
-	// FileDigestAlgorithm The file digest algorithm.
-	FileDigestAlgorithm *string `json:"fileDigestAlgorithm,omitempty"`
 }
 
 // FileHash undocumented

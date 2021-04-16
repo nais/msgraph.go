@@ -2,6 +2,33 @@
 
 package msgraph
 
+// MicrosoftAuthenticatorAuthenticationMode undocumented
+type MicrosoftAuthenticatorAuthenticationMode string
+
+const (
+	// MicrosoftAuthenticatorAuthenticationModeVDeviceBasedPush undocumented
+	MicrosoftAuthenticatorAuthenticationModeVDeviceBasedPush MicrosoftAuthenticatorAuthenticationMode = "deviceBasedPush"
+	// MicrosoftAuthenticatorAuthenticationModeVPush undocumented
+	MicrosoftAuthenticatorAuthenticationModeVPush MicrosoftAuthenticatorAuthenticationMode = "push"
+	// MicrosoftAuthenticatorAuthenticationModeVAny undocumented
+	MicrosoftAuthenticatorAuthenticationModeVAny MicrosoftAuthenticatorAuthenticationMode = "any"
+)
+
+var (
+	// MicrosoftAuthenticatorAuthenticationModePDeviceBasedPush is a pointer to MicrosoftAuthenticatorAuthenticationModeVDeviceBasedPush
+	MicrosoftAuthenticatorAuthenticationModePDeviceBasedPush = &_MicrosoftAuthenticatorAuthenticationModePDeviceBasedPush
+	// MicrosoftAuthenticatorAuthenticationModePPush is a pointer to MicrosoftAuthenticatorAuthenticationModeVPush
+	MicrosoftAuthenticatorAuthenticationModePPush = &_MicrosoftAuthenticatorAuthenticationModePPush
+	// MicrosoftAuthenticatorAuthenticationModePAny is a pointer to MicrosoftAuthenticatorAuthenticationModeVAny
+	MicrosoftAuthenticatorAuthenticationModePAny = &_MicrosoftAuthenticatorAuthenticationModePAny
+)
+
+var (
+	_MicrosoftAuthenticatorAuthenticationModePDeviceBasedPush = MicrosoftAuthenticatorAuthenticationModeVDeviceBasedPush
+	_MicrosoftAuthenticatorAuthenticationModePPush            = MicrosoftAuthenticatorAuthenticationModeVPush
+	_MicrosoftAuthenticatorAuthenticationModePAny             = MicrosoftAuthenticatorAuthenticationModeVAny
+)
+
 // MicrosoftStoreForBusinessLicenseType undocumented
 type MicrosoftStoreForBusinessLicenseType string
 

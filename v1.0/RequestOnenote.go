@@ -170,32 +170,6 @@ func (r *OnenoteSectionRequest) Delete(ctx context.Context) error {
 }
 
 //
-type OnenotePageOnenotePatchContentRequestBuilder struct{ BaseRequestBuilder }
-
-// OnenotePatchContent action undocumented
-func (b *OnenotePageRequestBuilder) OnenotePatchContent(reqObj *OnenotePageOnenotePatchContentRequestParameter) *OnenotePageOnenotePatchContentRequestBuilder {
-	bb := &OnenotePageOnenotePatchContentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/onenotePatchContent"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type OnenotePageOnenotePatchContentRequest struct{ BaseRequest }
-
-//
-func (b *OnenotePageOnenotePatchContentRequestBuilder) Request() *OnenotePageOnenotePatchContentRequest {
-	return &OnenotePageOnenotePatchContentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *OnenotePageOnenotePatchContentRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
 type OnenotePageCopyToSectionRequestBuilder struct{ BaseRequestBuilder }
 
 // CopyToSection action undocumented
@@ -220,6 +194,32 @@ func (b *OnenotePageCopyToSectionRequestBuilder) Request() *OnenotePageCopyToSec
 func (r *OnenotePageCopyToSectionRequest) Post(ctx context.Context) (resObj *OnenoteOperation, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+type OnenotePageOnenotePatchContentRequestBuilder struct{ BaseRequestBuilder }
+
+// OnenotePatchContent action undocumented
+func (b *OnenotePageRequestBuilder) OnenotePatchContent(reqObj *OnenotePageOnenotePatchContentRequestParameter) *OnenotePageOnenotePatchContentRequestBuilder {
+	bb := &OnenotePageOnenotePatchContentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/onenotePatchContent"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type OnenotePageOnenotePatchContentRequest struct{ BaseRequest }
+
+//
+func (b *OnenotePageOnenotePatchContentRequestBuilder) Request() *OnenotePageOnenotePatchContentRequest {
+	return &OnenotePageOnenotePatchContentRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *OnenotePageOnenotePatchContentRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //

@@ -651,132 +651,80 @@ func (r *ManagedAppProtectionTargetAppsRequest) Post(ctx context.Context) error 
 }
 
 //
-type ManagedDeviceRetireRequestBuilder struct{ BaseRequestBuilder }
+type ManagedDeviceBypassActivationLockRequestBuilder struct{ BaseRequestBuilder }
 
-// Retire action undocumented
-func (b *ManagedDeviceRequestBuilder) Retire(reqObj *ManagedDeviceRetireRequestParameter) *ManagedDeviceRetireRequestBuilder {
-	bb := &ManagedDeviceRetireRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/retire"
+// BypassActivationLock action undocumented
+func (b *ManagedDeviceRequestBuilder) BypassActivationLock(reqObj *ManagedDeviceBypassActivationLockRequestParameter) *ManagedDeviceBypassActivationLockRequestBuilder {
+	bb := &ManagedDeviceBypassActivationLockRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/bypassActivationLock"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type ManagedDeviceRetireRequest struct{ BaseRequest }
+type ManagedDeviceBypassActivationLockRequest struct{ BaseRequest }
 
 //
-func (b *ManagedDeviceRetireRequestBuilder) Request() *ManagedDeviceRetireRequest {
-	return &ManagedDeviceRetireRequest{
+func (b *ManagedDeviceBypassActivationLockRequestBuilder) Request() *ManagedDeviceBypassActivationLockRequest {
+	return &ManagedDeviceBypassActivationLockRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-func (r *ManagedDeviceRetireRequest) Post(ctx context.Context) error {
+func (r *ManagedDeviceBypassActivationLockRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
-type ManagedDeviceWipeRequestBuilder struct{ BaseRequestBuilder }
+type ManagedDeviceCleanWindowsDeviceRequestBuilder struct{ BaseRequestBuilder }
 
-// Wipe action undocumented
-func (b *ManagedDeviceRequestBuilder) Wipe(reqObj *ManagedDeviceWipeRequestParameter) *ManagedDeviceWipeRequestBuilder {
-	bb := &ManagedDeviceWipeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/wipe"
+// CleanWindowsDevice action undocumented
+func (b *ManagedDeviceRequestBuilder) CleanWindowsDevice(reqObj *ManagedDeviceCleanWindowsDeviceRequestParameter) *ManagedDeviceCleanWindowsDeviceRequestBuilder {
+	bb := &ManagedDeviceCleanWindowsDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/cleanWindowsDevice"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type ManagedDeviceWipeRequest struct{ BaseRequest }
+type ManagedDeviceCleanWindowsDeviceRequest struct{ BaseRequest }
 
 //
-func (b *ManagedDeviceWipeRequestBuilder) Request() *ManagedDeviceWipeRequest {
-	return &ManagedDeviceWipeRequest{
+func (b *ManagedDeviceCleanWindowsDeviceRequestBuilder) Request() *ManagedDeviceCleanWindowsDeviceRequest {
+	return &ManagedDeviceCleanWindowsDeviceRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-func (r *ManagedDeviceWipeRequest) Post(ctx context.Context) error {
+func (r *ManagedDeviceCleanWindowsDeviceRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
-type ManagedDeviceResetPasscodeRequestBuilder struct{ BaseRequestBuilder }
+type ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder struct{ BaseRequestBuilder }
 
-// ResetPasscode action undocumented
-func (b *ManagedDeviceRequestBuilder) ResetPasscode(reqObj *ManagedDeviceResetPasscodeRequestParameter) *ManagedDeviceResetPasscodeRequestBuilder {
-	bb := &ManagedDeviceResetPasscodeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/resetPasscode"
+// DeleteUserFromSharedAppleDevice action undocumented
+func (b *ManagedDeviceRequestBuilder) DeleteUserFromSharedAppleDevice(reqObj *ManagedDeviceDeleteUserFromSharedAppleDeviceRequestParameter) *ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder {
+	bb := &ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/deleteUserFromSharedAppleDevice"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type ManagedDeviceResetPasscodeRequest struct{ BaseRequest }
+type ManagedDeviceDeleteUserFromSharedAppleDeviceRequest struct{ BaseRequest }
 
 //
-func (b *ManagedDeviceResetPasscodeRequestBuilder) Request() *ManagedDeviceResetPasscodeRequest {
-	return &ManagedDeviceResetPasscodeRequest{
+func (b *ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder) Request() *ManagedDeviceDeleteUserFromSharedAppleDeviceRequest {
+	return &ManagedDeviceDeleteUserFromSharedAppleDeviceRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-func (r *ManagedDeviceResetPasscodeRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type ManagedDeviceRemoteLockRequestBuilder struct{ BaseRequestBuilder }
-
-// RemoteLock action undocumented
-func (b *ManagedDeviceRequestBuilder) RemoteLock(reqObj *ManagedDeviceRemoteLockRequestParameter) *ManagedDeviceRemoteLockRequestBuilder {
-	bb := &ManagedDeviceRemoteLockRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/remoteLock"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceRemoteLockRequest struct{ BaseRequest }
-
-//
-func (b *ManagedDeviceRemoteLockRequestBuilder) Request() *ManagedDeviceRemoteLockRequest {
-	return &ManagedDeviceRemoteLockRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *ManagedDeviceRemoteLockRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type ManagedDeviceRequestRemoteAssistanceRequestBuilder struct{ BaseRequestBuilder }
-
-// RequestRemoteAssistance action undocumented
-func (b *ManagedDeviceRequestBuilder) RequestRemoteAssistance(reqObj *ManagedDeviceRequestRemoteAssistanceRequestParameter) *ManagedDeviceRequestRemoteAssistanceRequestBuilder {
-	bb := &ManagedDeviceRequestRemoteAssistanceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/requestRemoteAssistance"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceRequestRemoteAssistanceRequest struct{ BaseRequest }
-
-//
-func (b *ManagedDeviceRequestRemoteAssistanceRequestBuilder) Request() *ManagedDeviceRequestRemoteAssistanceRequest {
-	return &ManagedDeviceRequestRemoteAssistanceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *ManagedDeviceRequestRemoteAssistanceRequest) Post(ctx context.Context) error {
+func (r *ManagedDeviceDeleteUserFromSharedAppleDeviceRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
@@ -833,28 +781,28 @@ func (r *ManagedDeviceLocateDeviceRequest) Post(ctx context.Context) error {
 }
 
 //
-type ManagedDeviceBypassActivationLockRequestBuilder struct{ BaseRequestBuilder }
+type ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder struct{ BaseRequestBuilder }
 
-// BypassActivationLock action undocumented
-func (b *ManagedDeviceRequestBuilder) BypassActivationLock(reqObj *ManagedDeviceBypassActivationLockRequestParameter) *ManagedDeviceBypassActivationLockRequestBuilder {
-	bb := &ManagedDeviceBypassActivationLockRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/bypassActivationLock"
+// LogoutSharedAppleDeviceActiveUser action undocumented
+func (b *ManagedDeviceRequestBuilder) LogoutSharedAppleDeviceActiveUser(reqObj *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestParameter) *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder {
+	bb := &ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/logoutSharedAppleDeviceActiveUser"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type ManagedDeviceBypassActivationLockRequest struct{ BaseRequest }
+type ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest struct{ BaseRequest }
 
 //
-func (b *ManagedDeviceBypassActivationLockRequestBuilder) Request() *ManagedDeviceBypassActivationLockRequest {
-	return &ManagedDeviceBypassActivationLockRequest{
+func (b *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder) Request() *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest {
+	return &ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-func (r *ManagedDeviceBypassActivationLockRequest) Post(ctx context.Context) error {
+func (r *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
@@ -885,32 +833,6 @@ func (r *ManagedDeviceRebootNowRequest) Post(ctx context.Context) error {
 }
 
 //
-type ManagedDeviceShutDownRequestBuilder struct{ BaseRequestBuilder }
-
-// ShutDown action undocumented
-func (b *ManagedDeviceRequestBuilder) ShutDown(reqObj *ManagedDeviceShutDownRequestParameter) *ManagedDeviceShutDownRequestBuilder {
-	bb := &ManagedDeviceShutDownRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/shutDown"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceShutDownRequest struct{ BaseRequest }
-
-//
-func (b *ManagedDeviceShutDownRequestBuilder) Request() *ManagedDeviceShutDownRequest {
-	return &ManagedDeviceShutDownRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *ManagedDeviceShutDownRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
 type ManagedDeviceRecoverPasscodeRequestBuilder struct{ BaseRequestBuilder }
 
 // RecoverPasscode action undocumented
@@ -937,80 +859,132 @@ func (r *ManagedDeviceRecoverPasscodeRequest) Post(ctx context.Context) error {
 }
 
 //
-type ManagedDeviceCleanWindowsDeviceRequestBuilder struct{ BaseRequestBuilder }
+type ManagedDeviceRemoteLockRequestBuilder struct{ BaseRequestBuilder }
 
-// CleanWindowsDevice action undocumented
-func (b *ManagedDeviceRequestBuilder) CleanWindowsDevice(reqObj *ManagedDeviceCleanWindowsDeviceRequestParameter) *ManagedDeviceCleanWindowsDeviceRequestBuilder {
-	bb := &ManagedDeviceCleanWindowsDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/cleanWindowsDevice"
+// RemoteLock action undocumented
+func (b *ManagedDeviceRequestBuilder) RemoteLock(reqObj *ManagedDeviceRemoteLockRequestParameter) *ManagedDeviceRemoteLockRequestBuilder {
+	bb := &ManagedDeviceRemoteLockRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/remoteLock"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type ManagedDeviceCleanWindowsDeviceRequest struct{ BaseRequest }
+type ManagedDeviceRemoteLockRequest struct{ BaseRequest }
 
 //
-func (b *ManagedDeviceCleanWindowsDeviceRequestBuilder) Request() *ManagedDeviceCleanWindowsDeviceRequest {
-	return &ManagedDeviceCleanWindowsDeviceRequest{
+func (b *ManagedDeviceRemoteLockRequestBuilder) Request() *ManagedDeviceRemoteLockRequest {
+	return &ManagedDeviceRemoteLockRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-func (r *ManagedDeviceCleanWindowsDeviceRequest) Post(ctx context.Context) error {
+func (r *ManagedDeviceRemoteLockRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
-type ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder struct{ BaseRequestBuilder }
+type ManagedDeviceRequestRemoteAssistanceRequestBuilder struct{ BaseRequestBuilder }
 
-// LogoutSharedAppleDeviceActiveUser action undocumented
-func (b *ManagedDeviceRequestBuilder) LogoutSharedAppleDeviceActiveUser(reqObj *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestParameter) *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder {
-	bb := &ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/logoutSharedAppleDeviceActiveUser"
+// RequestRemoteAssistance action undocumented
+func (b *ManagedDeviceRequestBuilder) RequestRemoteAssistance(reqObj *ManagedDeviceRequestRemoteAssistanceRequestParameter) *ManagedDeviceRequestRemoteAssistanceRequestBuilder {
+	bb := &ManagedDeviceRequestRemoteAssistanceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/requestRemoteAssistance"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest struct{ BaseRequest }
+type ManagedDeviceRequestRemoteAssistanceRequest struct{ BaseRequest }
 
 //
-func (b *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder) Request() *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest {
-	return &ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest{
+func (b *ManagedDeviceRequestRemoteAssistanceRequestBuilder) Request() *ManagedDeviceRequestRemoteAssistanceRequest {
+	return &ManagedDeviceRequestRemoteAssistanceRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-func (r *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest) Post(ctx context.Context) error {
+func (r *ManagedDeviceRequestRemoteAssistanceRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
-type ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder struct{ BaseRequestBuilder }
+type ManagedDeviceResetPasscodeRequestBuilder struct{ BaseRequestBuilder }
 
-// DeleteUserFromSharedAppleDevice action undocumented
-func (b *ManagedDeviceRequestBuilder) DeleteUserFromSharedAppleDevice(reqObj *ManagedDeviceDeleteUserFromSharedAppleDeviceRequestParameter) *ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder {
-	bb := &ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/deleteUserFromSharedAppleDevice"
+// ResetPasscode action undocumented
+func (b *ManagedDeviceRequestBuilder) ResetPasscode(reqObj *ManagedDeviceResetPasscodeRequestParameter) *ManagedDeviceResetPasscodeRequestBuilder {
+	bb := &ManagedDeviceResetPasscodeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/resetPasscode"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type ManagedDeviceDeleteUserFromSharedAppleDeviceRequest struct{ BaseRequest }
+type ManagedDeviceResetPasscodeRequest struct{ BaseRequest }
 
 //
-func (b *ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder) Request() *ManagedDeviceDeleteUserFromSharedAppleDeviceRequest {
-	return &ManagedDeviceDeleteUserFromSharedAppleDeviceRequest{
+func (b *ManagedDeviceResetPasscodeRequestBuilder) Request() *ManagedDeviceResetPasscodeRequest {
+	return &ManagedDeviceResetPasscodeRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-func (r *ManagedDeviceDeleteUserFromSharedAppleDeviceRequest) Post(ctx context.Context) error {
+func (r *ManagedDeviceResetPasscodeRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+type ManagedDeviceRetireRequestBuilder struct{ BaseRequestBuilder }
+
+// Retire action undocumented
+func (b *ManagedDeviceRequestBuilder) Retire(reqObj *ManagedDeviceRetireRequestParameter) *ManagedDeviceRetireRequestBuilder {
+	bb := &ManagedDeviceRetireRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/retire"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceRetireRequest struct{ BaseRequest }
+
+//
+func (b *ManagedDeviceRetireRequestBuilder) Request() *ManagedDeviceRetireRequest {
+	return &ManagedDeviceRetireRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *ManagedDeviceRetireRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+type ManagedDeviceShutDownRequestBuilder struct{ BaseRequestBuilder }
+
+// ShutDown action undocumented
+func (b *ManagedDeviceRequestBuilder) ShutDown(reqObj *ManagedDeviceShutDownRequestParameter) *ManagedDeviceShutDownRequestBuilder {
+	bb := &ManagedDeviceShutDownRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/shutDown"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceShutDownRequest struct{ BaseRequest }
+
+//
+func (b *ManagedDeviceShutDownRequestBuilder) Request() *ManagedDeviceShutDownRequest {
+	return &ManagedDeviceShutDownRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *ManagedDeviceShutDownRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
@@ -1037,6 +1011,32 @@ func (b *ManagedDeviceSyncDeviceRequestBuilder) Request() *ManagedDeviceSyncDevi
 
 //
 func (r *ManagedDeviceSyncDeviceRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+type ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder struct{ BaseRequestBuilder }
+
+// UpdateWindowsDeviceAccount action undocumented
+func (b *ManagedDeviceRequestBuilder) UpdateWindowsDeviceAccount(reqObj *ManagedDeviceUpdateWindowsDeviceAccountRequestParameter) *ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder {
+	bb := &ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/updateWindowsDeviceAccount"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceUpdateWindowsDeviceAccountRequest struct{ BaseRequest }
+
+//
+func (b *ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder) Request() *ManagedDeviceUpdateWindowsDeviceAccountRequest {
+	return &ManagedDeviceUpdateWindowsDeviceAccountRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *ManagedDeviceUpdateWindowsDeviceAccountRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
@@ -1093,28 +1093,28 @@ func (r *ManagedDeviceWindowsDefenderUpdateSignaturesRequest) Post(ctx context.C
 }
 
 //
-type ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder struct{ BaseRequestBuilder }
+type ManagedDeviceWipeRequestBuilder struct{ BaseRequestBuilder }
 
-// UpdateWindowsDeviceAccount action undocumented
-func (b *ManagedDeviceRequestBuilder) UpdateWindowsDeviceAccount(reqObj *ManagedDeviceUpdateWindowsDeviceAccountRequestParameter) *ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder {
-	bb := &ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/updateWindowsDeviceAccount"
+// Wipe action undocumented
+func (b *ManagedDeviceRequestBuilder) Wipe(reqObj *ManagedDeviceWipeRequestParameter) *ManagedDeviceWipeRequestBuilder {
+	bb := &ManagedDeviceWipeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/wipe"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type ManagedDeviceUpdateWindowsDeviceAccountRequest struct{ BaseRequest }
+type ManagedDeviceWipeRequest struct{ BaseRequest }
 
 //
-func (b *ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder) Request() *ManagedDeviceUpdateWindowsDeviceAccountRequest {
-	return &ManagedDeviceUpdateWindowsDeviceAccountRequest{
+func (b *ManagedDeviceWipeRequestBuilder) Request() *ManagedDeviceWipeRequest {
+	return &ManagedDeviceWipeRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-func (r *ManagedDeviceUpdateWindowsDeviceAccountRequest) Post(ctx context.Context) error {
+func (r *ManagedDeviceWipeRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 

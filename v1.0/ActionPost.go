@@ -8,14 +8,8 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/yaegashi/msgraph.go/jsonx"
+	"github.com/nais/msgraph.go/jsonx"
 )
-
-// PostReplyRequestParameter undocumented
-type PostReplyRequestParameter struct {
-	// Post undocumented
-	Post *Post `json:"Post,omitempty"`
-}
 
 // PostForwardRequestParameter undocumented
 type PostForwardRequestParameter struct {
@@ -23,6 +17,12 @@ type PostForwardRequestParameter struct {
 	Comment *string `json:"Comment,omitempty"`
 	// ToRecipients undocumented
 	ToRecipients []Recipient `json:"ToRecipients,omitempty"`
+}
+
+// PostReplyRequestParameter undocumented
+type PostReplyRequestParameter struct {
+	// Post undocumented
+	Post *Post `json:"Post,omitempty"`
 }
 
 // Attachments returns request builder for Attachment collection

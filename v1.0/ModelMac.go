@@ -6,52 +6,52 @@ package msgraph
 type MacOSCompliancePolicy struct {
 	// DeviceCompliancePolicy is the base model of MacOSCompliancePolicy
 	DeviceCompliancePolicy
-	// PasswordRequired Whether or not to require a password.
-	PasswordRequired *bool `json:"passwordRequired,omitempty"`
+	// DeviceThreatProtectionEnabled Require that devices have enabled device threat protection.
+	DeviceThreatProtectionEnabled *bool `json:"deviceThreatProtectionEnabled,omitempty"`
+	// DeviceThreatProtectionRequiredSecurityLevel Require Mobile Threat Protection minimum risk level to report noncompliance.
+	DeviceThreatProtectionRequiredSecurityLevel *DeviceThreatProtectionLevel `json:"deviceThreatProtectionRequiredSecurityLevel,omitempty"`
+	// FirewallBlockAllIncoming Corresponds to the “Block all incoming connections” option.
+	FirewallBlockAllIncoming *bool `json:"firewallBlockAllIncoming,omitempty"`
+	// FirewallEnabled Whether the firewall should be enabled or not.
+	FirewallEnabled *bool `json:"firewallEnabled,omitempty"`
+	// FirewallEnableStealthMode Corresponds to “Enable stealth mode.”
+	FirewallEnableStealthMode *bool `json:"firewallEnableStealthMode,omitempty"`
+	// OsMaximumVersion Maximum MacOS version.
+	OsMaximumVersion *string `json:"osMaximumVersion,omitempty"`
+	// OsMinimumVersion Minimum MacOS version.
+	OsMinimumVersion *string `json:"osMinimumVersion,omitempty"`
 	// PasswordBlockSimple Indicates whether or not to block simple passwords.
 	PasswordBlockSimple *bool `json:"passwordBlockSimple,omitempty"`
 	// PasswordExpirationDays Number of days before the password expires. Valid values 1 to 65535
 	PasswordExpirationDays *int `json:"passwordExpirationDays,omitempty"`
+	// PasswordMinimumCharacterSetCount The number of character sets required in the password.
+	PasswordMinimumCharacterSetCount *int `json:"passwordMinimumCharacterSetCount,omitempty"`
 	// PasswordMinimumLength Minimum length of password. Valid values 4 to 14
 	PasswordMinimumLength *int `json:"passwordMinimumLength,omitempty"`
 	// PasswordMinutesOfInactivityBeforeLock Minutes of inactivity before a password is required.
 	PasswordMinutesOfInactivityBeforeLock *int `json:"passwordMinutesOfInactivityBeforeLock,omitempty"`
 	// PasswordPreviousPasswordBlockCount Number of previous passwords to block. Valid values 1 to 24
 	PasswordPreviousPasswordBlockCount *int `json:"passwordPreviousPasswordBlockCount,omitempty"`
-	// PasswordMinimumCharacterSetCount The number of character sets required in the password.
-	PasswordMinimumCharacterSetCount *int `json:"passwordMinimumCharacterSetCount,omitempty"`
+	// PasswordRequired Whether or not to require a password.
+	PasswordRequired *bool `json:"passwordRequired,omitempty"`
 	// PasswordRequiredType The required password type.
 	PasswordRequiredType *RequiredPasswordType `json:"passwordRequiredType,omitempty"`
-	// OsMinimumVersion Minimum MacOS version.
-	OsMinimumVersion *string `json:"osMinimumVersion,omitempty"`
-	// OsMaximumVersion Maximum MacOS version.
-	OsMaximumVersion *string `json:"osMaximumVersion,omitempty"`
-	// SystemIntegrityProtectionEnabled Require that devices have enabled system integrity protection.
-	SystemIntegrityProtectionEnabled *bool `json:"systemIntegrityProtectionEnabled,omitempty"`
-	// DeviceThreatProtectionEnabled Require that devices have enabled device threat protection.
-	DeviceThreatProtectionEnabled *bool `json:"deviceThreatProtectionEnabled,omitempty"`
-	// DeviceThreatProtectionRequiredSecurityLevel Require Mobile Threat Protection minimum risk level to report noncompliance.
-	DeviceThreatProtectionRequiredSecurityLevel *DeviceThreatProtectionLevel `json:"deviceThreatProtectionRequiredSecurityLevel,omitempty"`
 	// StorageRequireEncryption Require encryption on Mac OS devices.
 	StorageRequireEncryption *bool `json:"storageRequireEncryption,omitempty"`
-	// FirewallEnabled Whether the firewall should be enabled or not.
-	FirewallEnabled *bool `json:"firewallEnabled,omitempty"`
-	// FirewallBlockAllIncoming Corresponds to the “Block all incoming connections” option.
-	FirewallBlockAllIncoming *bool `json:"firewallBlockAllIncoming,omitempty"`
-	// FirewallEnableStealthMode Corresponds to “Enable stealth mode.”
-	FirewallEnableStealthMode *bool `json:"firewallEnableStealthMode,omitempty"`
+	// SystemIntegrityProtectionEnabled Require that devices have enabled system integrity protection.
+	SystemIntegrityProtectionEnabled *bool `json:"systemIntegrityProtectionEnabled,omitempty"`
 }
 
 // MacOSCustomConfiguration This topic provides descriptions of the declared methods, properties and relationships exposed by the macOSCustomConfiguration resource.
 type MacOSCustomConfiguration struct {
 	// DeviceConfiguration is the base model of MacOSCustomConfiguration
 	DeviceConfiguration
-	// PayloadName Name that is displayed to the user.
-	PayloadName *string `json:"payloadName,omitempty"`
-	// PayloadFileName Payload file name (*.mobileconfig | *.xml).
-	PayloadFileName *string `json:"payloadFileName,omitempty"`
 	// Payload Payload. (UTF8 encoded byte array)
 	Payload *Binary `json:"payload,omitempty"`
+	// PayloadFileName Payload file name (*.mobileconfig | *.xml).
+	PayloadFileName *string `json:"payloadFileName,omitempty"`
+	// PayloadName Name that is displayed to the user.
+	PayloadName *string `json:"payloadName,omitempty"`
 }
 
 // MacOSDeviceFeaturesConfiguration MacOS device features configuration profile.
@@ -64,10 +64,10 @@ type MacOSDeviceFeaturesConfiguration struct {
 type MacOSGeneralDeviceConfiguration struct {
 	// DeviceConfiguration is the base model of MacOSGeneralDeviceConfiguration
 	DeviceConfiguration
-	// CompliantAppsList List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements.
-	CompliantAppsList []AppListItem `json:"compliantAppsList,omitempty"`
 	// CompliantAppListType List that is in the CompliantAppsList.
 	CompliantAppListType *AppListType `json:"compliantAppListType,omitempty"`
+	// CompliantAppsList List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements.
+	CompliantAppsList []AppListItem `json:"compliantAppsList,omitempty"`
 	// EmailInDomainSuffixes An email address lacking a suffix that matches any of these strings will be considered out-of-domain.
 	EmailInDomainSuffixes []string `json:"emailInDomainSuffixes,omitempty"`
 	// PasswordBlockSimple Block simple passwords.
@@ -84,10 +84,10 @@ type MacOSGeneralDeviceConfiguration struct {
 	PasswordMinutesOfInactivityBeforeScreenTimeout *int `json:"passwordMinutesOfInactivityBeforeScreenTimeout,omitempty"`
 	// PasswordPreviousPasswordBlockCount Number of previous passwords to block.
 	PasswordPreviousPasswordBlockCount *int `json:"passwordPreviousPasswordBlockCount,omitempty"`
-	// PasswordRequiredType Type of password that is required.
-	PasswordRequiredType *RequiredPasswordType `json:"passwordRequiredType,omitempty"`
 	// PasswordRequired Whether or not to require a password.
 	PasswordRequired *bool `json:"passwordRequired,omitempty"`
+	// PasswordRequiredType Type of password that is required.
+	PasswordRequiredType *RequiredPasswordType `json:"passwordRequiredType,omitempty"`
 }
 
 // MacOSOfficeSuiteApp Contains properties and inherited properties for the MacOS Office Suite App.

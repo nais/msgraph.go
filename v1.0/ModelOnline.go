@@ -8,22 +8,50 @@ import "time"
 type OnlineMeeting struct {
 	// Entity is the base model of OnlineMeeting
 	Entity
-	// CreationDateTime undocumented
-	CreationDateTime *time.Time `json:"creationDateTime,omitempty"`
-	// StartDateTime undocumented
-	StartDateTime *time.Time `json:"startDateTime,omitempty"`
-	// EndDateTime undocumented
-	EndDateTime *time.Time `json:"endDateTime,omitempty"`
-	// JoinWebURL undocumented
-	JoinWebURL *string `json:"joinWebUrl,omitempty"`
-	// Subject undocumented
-	Subject *string `json:"subject,omitempty"`
-	// Participants undocumented
-	Participants *MeetingParticipants `json:"participants,omitempty"`
+	// AllowedPresenters undocumented
+	AllowedPresenters *OnlineMeetingPresenters `json:"allowedPresenters,omitempty"`
 	// AudioConferencing undocumented
 	AudioConferencing *AudioConferencing `json:"audioConferencing,omitempty"`
 	// ChatInfo undocumented
 	ChatInfo *ChatInfo `json:"chatInfo,omitempty"`
+	// CreationDateTime undocumented
+	CreationDateTime *time.Time `json:"creationDateTime,omitempty"`
+	// EndDateTime undocumented
+	EndDateTime *time.Time `json:"endDateTime,omitempty"`
+	// ExternalID undocumented
+	ExternalID *string `json:"externalId,omitempty"`
+	// IsEntryExitAnnounced undocumented
+	IsEntryExitAnnounced *bool `json:"isEntryExitAnnounced,omitempty"`
+	// JoinInformation undocumented
+	JoinInformation *ItemBody `json:"joinInformation,omitempty"`
+	// JoinWebURL undocumented
+	JoinWebURL *string `json:"joinWebUrl,omitempty"`
+	// LobbyBypassSettings undocumented
+	LobbyBypassSettings *LobbyBypassSettings `json:"lobbyBypassSettings,omitempty"`
+	// Participants undocumented
+	Participants *MeetingParticipants `json:"participants,omitempty"`
+	// StartDateTime undocumented
+	StartDateTime *time.Time `json:"startDateTime,omitempty"`
+	// Subject undocumented
+	Subject *string `json:"subject,omitempty"`
 	// VideoTeleconferenceID undocumented
 	VideoTeleconferenceID *string `json:"videoTeleconferenceId,omitempty"`
+}
+
+// OnlineMeetingInfo undocumented
+type OnlineMeetingInfo struct {
+	// Object is the base model of OnlineMeetingInfo
+	Object
+	// ConferenceID undocumented
+	ConferenceID *string `json:"conferenceId,omitempty"`
+	// JoinURL undocumented
+	JoinURL *string `json:"joinUrl,omitempty"`
+	// Phones undocumented
+	Phones []Phone `json:"phones,omitempty"`
+	// QuickDial undocumented
+	QuickDial *string `json:"quickDial,omitempty"`
+	// TollFreeNumbers undocumented
+	TollFreeNumbers []string `json:"tollFreeNumbers,omitempty"`
+	// TollNumber undocumented
+	TollNumber *string `json:"tollNumber,omitempty"`
 }

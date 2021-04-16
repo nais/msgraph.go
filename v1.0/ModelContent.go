@@ -34,6 +34,8 @@ type ContentTypeInfo struct {
 	Object
 	// ID undocumented
 	ID *string `json:"id,omitempty"`
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
 }
 
 // ContentTypeOrder undocumented

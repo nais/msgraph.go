@@ -8,8 +8,24 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/yaegashi/msgraph.go/jsonx"
+	"github.com/nais/msgraph.go/jsonx"
 )
+
+// CallCollectionLogTeleconferenceDeviceQualityRequestParameter undocumented
+type CallCollectionLogTeleconferenceDeviceQualityRequestParameter struct {
+	// Quality undocumented
+	Quality *TeleconferenceDeviceQuality `json:"quality,omitempty"`
+}
+
+// CallRedirectRequestParameter undocumented
+type CallRedirectRequestParameter struct {
+	// Targets undocumented
+	Targets []InvitationParticipantInfo `json:"targets,omitempty"`
+	// Timeout undocumented
+	Timeout *int `json:"timeout,omitempty"`
+	// CallbackURI undocumented
+	CallbackURI *string `json:"callbackUri,omitempty"`
+}
 
 // CallAnswerRequestParameter undocumented
 type CallAnswerRequestParameter struct {
@@ -19,6 +35,12 @@ type CallAnswerRequestParameter struct {
 	MediaConfig *MediaConfig `json:"mediaConfig,omitempty"`
 	// AcceptedModalities undocumented
 	AcceptedModalities []Modality `json:"acceptedModalities,omitempty"`
+}
+
+// CallCancelMediaProcessingRequestParameter undocumented
+type CallCancelMediaProcessingRequestParameter struct {
+	// ClientContext undocumented
+	ClientContext *string `json:"clientContext,omitempty"`
 }
 
 // CallChangeScreenSharingRoleRequestParameter undocumented
@@ -65,16 +87,6 @@ type CallRecordResponseRequestParameter struct {
 	ClientContext *string `json:"clientContext,omitempty"`
 }
 
-// CallRedirectRequestParameter undocumented
-type CallRedirectRequestParameter struct {
-	// Targets undocumented
-	Targets []InvitationParticipantInfo `json:"targets,omitempty"`
-	// Timeout undocumented
-	Timeout *int `json:"timeout,omitempty"`
-	// CallbackURI undocumented
-	CallbackURI *string `json:"callbackUri,omitempty"`
-}
-
 // CallRejectRequestParameter undocumented
 type CallRejectRequestParameter struct {
 	// Reason undocumented
@@ -97,6 +109,14 @@ type CallTransferRequestParameter struct {
 
 // CallUnmuteRequestParameter undocumented
 type CallUnmuteRequestParameter struct {
+	// ClientContext undocumented
+	ClientContext *string `json:"clientContext,omitempty"`
+}
+
+// CallUpdateRecordingStatusRequestParameter undocumented
+type CallUpdateRecordingStatusRequestParameter struct {
+	// Status undocumented
+	Status *RecordingStatus `json:"status,omitempty"`
 	// ClientContext undocumented
 	ClientContext *string `json:"clientContext,omitempty"`
 }

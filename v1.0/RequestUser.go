@@ -8,7 +8,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/yaegashi/msgraph.go/jsonx"
+	"github.com/nais/msgraph.go/jsonx"
 )
 
 // UserRequestBuilder is request builder for User
@@ -77,6 +77,138 @@ func (r *UserActivityRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// UserConsentRequestObjectRequestBuilder is request builder for UserConsentRequestObject
+type UserConsentRequestObjectRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserConsentRequestObjectRequest
+func (b *UserConsentRequestObjectRequestBuilder) Request() *UserConsentRequestObjectRequest {
+	return &UserConsentRequestObjectRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserConsentRequestObjectRequest is request for UserConsentRequestObject
+type UserConsentRequestObjectRequest struct{ BaseRequest }
+
+// Get performs GET request for UserConsentRequestObject
+func (r *UserConsentRequestObjectRequest) Get(ctx context.Context) (resObj *UserConsentRequestObject, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserConsentRequestObject
+func (r *UserConsentRequestObjectRequest) Update(ctx context.Context, reqObj *UserConsentRequestObject) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserConsentRequestObject
+func (r *UserConsentRequestObjectRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserFlowAPIConnectorConfigurationRequestBuilder is request builder for UserFlowAPIConnectorConfiguration
+type UserFlowAPIConnectorConfigurationRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserFlowAPIConnectorConfigurationRequest
+func (b *UserFlowAPIConnectorConfigurationRequestBuilder) Request() *UserFlowAPIConnectorConfigurationRequest {
+	return &UserFlowAPIConnectorConfigurationRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserFlowAPIConnectorConfigurationRequest is request for UserFlowAPIConnectorConfiguration
+type UserFlowAPIConnectorConfigurationRequest struct{ BaseRequest }
+
+// Get performs GET request for UserFlowAPIConnectorConfiguration
+func (r *UserFlowAPIConnectorConfigurationRequest) Get(ctx context.Context) (resObj *UserFlowAPIConnectorConfiguration, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserFlowAPIConnectorConfiguration
+func (r *UserFlowAPIConnectorConfigurationRequest) Update(ctx context.Context, reqObj *UserFlowAPIConnectorConfiguration) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserFlowAPIConnectorConfiguration
+func (r *UserFlowAPIConnectorConfigurationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserFlowLanguageConfigurationRequestBuilder is request builder for UserFlowLanguageConfiguration
+type UserFlowLanguageConfigurationRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserFlowLanguageConfigurationRequest
+func (b *UserFlowLanguageConfigurationRequestBuilder) Request() *UserFlowLanguageConfigurationRequest {
+	return &UserFlowLanguageConfigurationRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserFlowLanguageConfigurationRequest is request for UserFlowLanguageConfiguration
+type UserFlowLanguageConfigurationRequest struct{ BaseRequest }
+
+// Get performs GET request for UserFlowLanguageConfiguration
+func (r *UserFlowLanguageConfigurationRequest) Get(ctx context.Context) (resObj *UserFlowLanguageConfiguration, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserFlowLanguageConfiguration
+func (r *UserFlowLanguageConfigurationRequest) Update(ctx context.Context, reqObj *UserFlowLanguageConfiguration) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserFlowLanguageConfiguration
+func (r *UserFlowLanguageConfigurationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserFlowLanguagePageRequestBuilder is request builder for UserFlowLanguagePage
+type UserFlowLanguagePageRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserFlowLanguagePageRequest
+func (b *UserFlowLanguagePageRequestBuilder) Request() *UserFlowLanguagePageRequest {
+	return &UserFlowLanguagePageRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserFlowLanguagePageRequest is request for UserFlowLanguagePage
+type UserFlowLanguagePageRequest struct{ BaseRequest }
+
+// Get performs GET request for UserFlowLanguagePage
+func (r *UserFlowLanguagePageRequest) Get(ctx context.Context) (resObj *UserFlowLanguagePage, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserFlowLanguagePage
+func (r *UserFlowLanguagePageRequest) Update(ctx context.Context, reqObj *UserFlowLanguagePage) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserFlowLanguagePage
+func (r *UserFlowLanguagePageRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // UserInstallStateSummaryRequestBuilder is request builder for UserInstallStateSummary
 type UserInstallStateSummaryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -110,6 +242,39 @@ func (r *UserInstallStateSummaryRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// UserScopeTeamsAppInstallationRequestBuilder is request builder for UserScopeTeamsAppInstallation
+type UserScopeTeamsAppInstallationRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserScopeTeamsAppInstallationRequest
+func (b *UserScopeTeamsAppInstallationRequestBuilder) Request() *UserScopeTeamsAppInstallationRequest {
+	return &UserScopeTeamsAppInstallationRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserScopeTeamsAppInstallationRequest is request for UserScopeTeamsAppInstallation
+type UserScopeTeamsAppInstallationRequest struct{ BaseRequest }
+
+// Get performs GET request for UserScopeTeamsAppInstallation
+func (r *UserScopeTeamsAppInstallationRequest) Get(ctx context.Context) (resObj *UserScopeTeamsAppInstallation, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserScopeTeamsAppInstallation
+func (r *UserScopeTeamsAppInstallationRequest) Update(ctx context.Context, reqObj *UserScopeTeamsAppInstallation) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserScopeTeamsAppInstallation
+func (r *UserScopeTeamsAppInstallationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // UserSettingsRequestBuilder is request builder for UserSettings
 type UserSettingsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -140,6 +305,39 @@ func (r *UserSettingsRequest) Update(ctx context.Context, reqObj *UserSettings) 
 
 // Delete performs DELETE request for UserSettings
 func (r *UserSettingsRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserTeamworkRequestBuilder is request builder for UserTeamwork
+type UserTeamworkRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserTeamworkRequest
+func (b *UserTeamworkRequestBuilder) Request() *UserTeamworkRequest {
+	return &UserTeamworkRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserTeamworkRequest is request for UserTeamwork
+type UserTeamworkRequest struct{ BaseRequest }
+
+// Get performs GET request for UserTeamwork
+func (r *UserTeamworkRequest) Get(ctx context.Context) (resObj *UserTeamwork, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserTeamwork
+func (r *UserTeamworkRequest) Update(ctx context.Context, reqObj *UserTeamwork) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserTeamwork
+func (r *UserTeamworkRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
@@ -197,6 +395,33 @@ func (r *UserChangePasswordRequest) Post(ctx context.Context) error {
 }
 
 //
+type UserReprocessLicenseAssignmentRequestBuilder struct{ BaseRequestBuilder }
+
+// ReprocessLicenseAssignment action undocumented
+func (b *UserRequestBuilder) ReprocessLicenseAssignment(reqObj *UserReprocessLicenseAssignmentRequestParameter) *UserReprocessLicenseAssignmentRequestBuilder {
+	bb := &UserReprocessLicenseAssignmentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/reprocessLicenseAssignment"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type UserReprocessLicenseAssignmentRequest struct{ BaseRequest }
+
+//
+func (b *UserReprocessLicenseAssignmentRequestBuilder) Request() *UserReprocessLicenseAssignmentRequest {
+	return &UserReprocessLicenseAssignmentRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *UserReprocessLicenseAssignmentRequest) Post(ctx context.Context) (resObj *User, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
+	return
+}
+
+//
 type UserRevokeSignInSessionsRequestBuilder struct{ BaseRequestBuilder }
 
 // RevokeSignInSessions action undocumented
@@ -248,32 +473,6 @@ func (b *UserFindMeetingTimesRequestBuilder) Request() *UserFindMeetingTimesRequ
 func (r *UserFindMeetingTimesRequest) Post(ctx context.Context) (resObj *MeetingTimeSuggestionsResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-type UserSendMailRequestBuilder struct{ BaseRequestBuilder }
-
-// SendMail action undocumented
-func (b *UserRequestBuilder) SendMail(reqObj *UserSendMailRequestParameter) *UserSendMailRequestBuilder {
-	bb := &UserSendMailRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/sendMail"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type UserSendMailRequest struct{ BaseRequest }
-
-//
-func (b *UserSendMailRequestBuilder) Request() *UserSendMailRequest {
-	return &UserSendMailRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *UserSendMailRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -361,6 +560,32 @@ func (r *UserGetMailTipsRequest) PostN(ctx context.Context, n int) ([]MailTips, 
 //
 func (r *UserGetMailTipsRequest) Post(ctx context.Context) ([]MailTips, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject, 0)
+}
+
+//
+type UserSendMailRequestBuilder struct{ BaseRequestBuilder }
+
+// SendMail action undocumented
+func (b *UserRequestBuilder) SendMail(reqObj *UserSendMailRequestParameter) *UserSendMailRequestBuilder {
+	bb := &UserSendMailRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/sendMail"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type UserSendMailRequest struct{ BaseRequest }
+
+//
+func (b *UserSendMailRequestBuilder) Request() *UserSendMailRequest {
+	return &UserSendMailRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *UserSendMailRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -525,5 +750,31 @@ func (b *UserExportPersonalDataRequestBuilder) Request() *UserExportPersonalData
 
 //
 func (r *UserExportPersonalDataRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+type UserTeamworkSendActivityNotificationRequestBuilder struct{ BaseRequestBuilder }
+
+// SendActivityNotification action undocumented
+func (b *UserTeamworkRequestBuilder) SendActivityNotification(reqObj *UserTeamworkSendActivityNotificationRequestParameter) *UserTeamworkSendActivityNotificationRequestBuilder {
+	bb := &UserTeamworkSendActivityNotificationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/sendActivityNotification"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type UserTeamworkSendActivityNotificationRequest struct{ BaseRequest }
+
+//
+func (b *UserTeamworkSendActivityNotificationRequestBuilder) Request() *UserTeamworkSendActivityNotificationRequest {
+	return &UserTeamworkSendActivityNotificationRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *UserTeamworkSendActivityNotificationRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

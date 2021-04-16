@@ -6,16 +6,16 @@ package msgraph
 type TargetResource struct {
 	// Object is the base model of TargetResource
 	Object
-	// ID undocumented
-	ID *string `json:"id,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
+	// GroupType undocumented
+	GroupType *GroupType `json:"groupType,omitempty"`
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
+	// ModifiedProperties undocumented
+	ModifiedProperties []ModifiedProperty `json:"modifiedProperties,omitempty"`
 	// Type undocumented
 	Type *string `json:"type,omitempty"`
 	// UserPrincipalName undocumented
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// GroupType undocumented
-	GroupType *GroupType `json:"groupType,omitempty"`
-	// ModifiedProperties undocumented
-	ModifiedProperties []ModifiedProperty `json:"modifiedProperties,omitempty"`
 }

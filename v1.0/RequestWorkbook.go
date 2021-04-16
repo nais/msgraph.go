@@ -961,6 +961,39 @@ func (r *WorkbookNamedItemRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// WorkbookOperationRequestBuilder is request builder for WorkbookOperation
+type WorkbookOperationRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns WorkbookOperationRequest
+func (b *WorkbookOperationRequestBuilder) Request() *WorkbookOperationRequest {
+	return &WorkbookOperationRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// WorkbookOperationRequest is request for WorkbookOperation
+type WorkbookOperationRequest struct{ BaseRequest }
+
+// Get performs GET request for WorkbookOperation
+func (r *WorkbookOperationRequest) Get(ctx context.Context) (resObj *WorkbookOperation, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for WorkbookOperation
+func (r *WorkbookOperationRequest) Update(ctx context.Context, reqObj *WorkbookOperation) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for WorkbookOperation
+func (r *WorkbookOperationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // WorkbookPivotTableRequestBuilder is request builder for WorkbookPivotTable
 type WorkbookPivotTableRequestBuilder struct{ BaseRequestBuilder }
 
@@ -1663,6 +1696,32 @@ func (r *WorkbookWorksheetCollectionAddRequest) Post(ctx context.Context) (resOb
 }
 
 //
+type WorkbookCloseSessionRequestBuilder struct{ BaseRequestBuilder }
+
+// CloseSession action undocumented
+func (b *WorkbookRequestBuilder) CloseSession(reqObj *WorkbookCloseSessionRequestParameter) *WorkbookCloseSessionRequestBuilder {
+	bb := &WorkbookCloseSessionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/closeSession"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookCloseSessionRequest struct{ BaseRequest }
+
+//
+func (b *WorkbookCloseSessionRequestBuilder) Request() *WorkbookCloseSessionRequest {
+	return &WorkbookCloseSessionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *WorkbookCloseSessionRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
 type WorkbookCreateSessionRequestBuilder struct{ BaseRequestBuilder }
 
 // CreateSession action undocumented
@@ -1687,32 +1746,6 @@ func (b *WorkbookCreateSessionRequestBuilder) Request() *WorkbookCreateSessionRe
 func (r *WorkbookCreateSessionRequest) Post(ctx context.Context) (resObj *WorkbookSessionInfo, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-type WorkbookCloseSessionRequestBuilder struct{ BaseRequestBuilder }
-
-// CloseSession action undocumented
-func (b *WorkbookRequestBuilder) CloseSession(reqObj *WorkbookCloseSessionRequestParameter) *WorkbookCloseSessionRequestBuilder {
-	bb := &WorkbookCloseSessionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/closeSession"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookCloseSessionRequest struct{ BaseRequest }
-
-//
-func (b *WorkbookCloseSessionRequestBuilder) Request() *WorkbookCloseSessionRequest {
-	return &WorkbookCloseSessionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *WorkbookCloseSessionRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //

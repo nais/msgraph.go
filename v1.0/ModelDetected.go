@@ -6,14 +6,14 @@ package msgraph
 type DetectedApp struct {
 	// Entity is the base model of DetectedApp
 	Entity
-	// DisplayName Name of the discovered application. Read-only
-	DisplayName *string `json:"displayName,omitempty"`
-	// Version Version of the discovered application. Read-only
-	Version *string `json:"version,omitempty"`
-	// SizeInByte Discovered application size in bytes. Read-only
-	SizeInByte *int `json:"sizeInByte,omitempty"`
 	// DeviceCount The number of devices that have installed this application
 	DeviceCount *int `json:"deviceCount,omitempty"`
+	// DisplayName Name of the discovered application. Read-only
+	DisplayName *string `json:"displayName,omitempty"`
+	// SizeInByte Discovered application size in bytes. Read-only
+	SizeInByte *int `json:"sizeInByte,omitempty"`
+	// Version Version of the discovered application. Read-only
+	Version *string `json:"version,omitempty"`
 	// ManagedDevices undocumented
 	ManagedDevices []ManagedDevice `json:"managedDevices,omitempty"`
 }

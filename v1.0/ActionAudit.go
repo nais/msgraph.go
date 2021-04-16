@@ -8,7 +8,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/yaegashi/msgraph.go/jsonx"
+	"github.com/nais/msgraph.go/jsonx"
 )
 
 // DirectoryAudits returns request builder for DirectoryAudit collection
@@ -110,6 +110,109 @@ func (r *AuditLogRootDirectoryAuditsCollectionRequest) Get(ctx context.Context) 
 
 // Add performs POST request for DirectoryAudit collection
 func (r *AuditLogRootDirectoryAuditsCollectionRequest) Add(ctx context.Context, reqObj *DirectoryAudit) (resObj *DirectoryAudit, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// Provisioning returns request builder for ProvisioningObjectSummary collection
+func (b *AuditLogRootRequestBuilder) Provisioning() *AuditLogRootProvisioningCollectionRequestBuilder {
+	bb := &AuditLogRootProvisioningCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/provisioning"
+	return bb
+}
+
+// AuditLogRootProvisioningCollectionRequestBuilder is request builder for ProvisioningObjectSummary collection
+type AuditLogRootProvisioningCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ProvisioningObjectSummary collection
+func (b *AuditLogRootProvisioningCollectionRequestBuilder) Request() *AuditLogRootProvisioningCollectionRequest {
+	return &AuditLogRootProvisioningCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ProvisioningObjectSummary item
+func (b *AuditLogRootProvisioningCollectionRequestBuilder) ID(id string) *ProvisioningObjectSummaryRequestBuilder {
+	bb := &ProvisioningObjectSummaryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// AuditLogRootProvisioningCollectionRequest is request for ProvisioningObjectSummary collection
+type AuditLogRootProvisioningCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ProvisioningObjectSummary collection
+func (r *AuditLogRootProvisioningCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ProvisioningObjectSummary, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ProvisioningObjectSummary
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ProvisioningObjectSummary
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ProvisioningObjectSummary collection, max N pages
+func (r *AuditLogRootProvisioningCollectionRequest) GetN(ctx context.Context, n int) ([]ProvisioningObjectSummary, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ProvisioningObjectSummary collection
+func (r *AuditLogRootProvisioningCollectionRequest) Get(ctx context.Context) ([]ProvisioningObjectSummary, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ProvisioningObjectSummary collection
+func (r *AuditLogRootProvisioningCollectionRequest) Add(ctx context.Context, reqObj *ProvisioningObjectSummary) (resObj *ProvisioningObjectSummary, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

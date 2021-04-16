@@ -22,6 +22,8 @@ type List struct {
 	Drive *Drive `json:"drive,omitempty"`
 	// Items undocumented
 	Items []ListItem `json:"items,omitempty"`
+	// Subscriptions undocumented
+	Subscriptions []Subscription `json:"subscriptions,omitempty"`
 }
 
 // ListInfo undocumented

@@ -46,10 +46,10 @@ type AudioConferencing struct {
 	Object
 	// ConferenceID undocumented
 	ConferenceID *string `json:"conferenceId,omitempty"`
-	// TollNumber undocumented
-	TollNumber *string `json:"tollNumber,omitempty"`
-	// TollFreeNumber undocumented
-	TollFreeNumber *string `json:"tollFreeNumber,omitempty"`
 	// DialinURL undocumented
 	DialinURL *string `json:"dialinUrl,omitempty"`
+	// TollFreeNumber undocumented
+	TollFreeNumber *string `json:"tollFreeNumber,omitempty"`
+	// TollNumber undocumented
+	TollNumber *string `json:"tollNumber,omitempty"`
 }

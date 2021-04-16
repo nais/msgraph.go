@@ -8,11 +8,18 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/yaegashi/msgraph.go/jsonx"
+	"github.com/nais/msgraph.go/jsonx"
 )
 
 // OrganizationSetMobileDeviceManagementAuthorityRequestParameter undocumented
 type OrganizationSetMobileDeviceManagementAuthorityRequestParameter struct {
+}
+
+// Branding is navigation property
+func (b *OrganizationRequestBuilder) Branding() *OrganizationalBrandingRequestBuilder {
+	bb := &OrganizationalBrandingRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/branding"
+	return bb
 }
 
 // CertificateBasedAuthConfiguration returns request builder for CertificateBasedAuthConfiguration collection

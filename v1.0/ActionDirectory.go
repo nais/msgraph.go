@@ -8,16 +8,8 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/yaegashi/msgraph.go/jsonx"
+	"github.com/nais/msgraph.go/jsonx"
 )
-
-// DirectoryObjectCollectionGetByIDsRequestParameter undocumented
-type DirectoryObjectCollectionGetByIDsRequestParameter struct {
-	// IDs undocumented
-	IDs []string `json:"ids,omitempty"`
-	// Types undocumented
-	Types []string `json:"types,omitempty"`
-}
 
 // DirectoryObjectCollectionValidatePropertiesRequestParameter undocumented
 type DirectoryObjectCollectionValidatePropertiesRequestParameter struct {
@@ -29,6 +21,20 @@ type DirectoryObjectCollectionValidatePropertiesRequestParameter struct {
 	MailNickname *string `json:"mailNickname,omitempty"`
 	// OnBehalfOfUserID undocumented
 	OnBehalfOfUserID *UUID `json:"onBehalfOfUserId,omitempty"`
+}
+
+// DirectoryObjectCollectionGetAvailableExtensionPropertiesRequestParameter undocumented
+type DirectoryObjectCollectionGetAvailableExtensionPropertiesRequestParameter struct {
+	// IsSyncedFromOnPremises undocumented
+	IsSyncedFromOnPremises *bool `json:"isSyncedFromOnPremises,omitempty"`
+}
+
+// DirectoryObjectCollectionGetByIDsRequestParameter undocumented
+type DirectoryObjectCollectionGetByIDsRequestParameter struct {
+	// IDs undocumented
+	IDs []string `json:"ids,omitempty"`
+	// Types undocumented
+	Types []string `json:"types,omitempty"`
 }
 
 // DirectoryObjectCheckMemberGroupsRequestParameter undocumented
@@ -57,6 +63,109 @@ type DirectoryObjectGetMemberObjectsRequestParameter struct {
 
 // DirectoryObjectRestoreRequestParameter undocumented
 type DirectoryObjectRestoreRequestParameter struct {
+}
+
+// AdministrativeUnits returns request builder for AdministrativeUnit collection
+func (b *DirectoryRequestBuilder) AdministrativeUnits() *DirectoryAdministrativeUnitsCollectionRequestBuilder {
+	bb := &DirectoryAdministrativeUnitsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/administrativeUnits"
+	return bb
+}
+
+// DirectoryAdministrativeUnitsCollectionRequestBuilder is request builder for AdministrativeUnit collection
+type DirectoryAdministrativeUnitsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for AdministrativeUnit collection
+func (b *DirectoryAdministrativeUnitsCollectionRequestBuilder) Request() *DirectoryAdministrativeUnitsCollectionRequest {
+	return &DirectoryAdministrativeUnitsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for AdministrativeUnit item
+func (b *DirectoryAdministrativeUnitsCollectionRequestBuilder) ID(id string) *AdministrativeUnitRequestBuilder {
+	bb := &AdministrativeUnitRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DirectoryAdministrativeUnitsCollectionRequest is request for AdministrativeUnit collection
+type DirectoryAdministrativeUnitsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for AdministrativeUnit collection
+func (r *DirectoryAdministrativeUnitsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AdministrativeUnit, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []AdministrativeUnit
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []AdministrativeUnit
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for AdministrativeUnit collection, max N pages
+func (r *DirectoryAdministrativeUnitsCollectionRequest) GetN(ctx context.Context, n int) ([]AdministrativeUnit, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AdministrativeUnit collection
+func (r *DirectoryAdministrativeUnitsCollectionRequest) Get(ctx context.Context) ([]AdministrativeUnit, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for AdministrativeUnit collection
+func (r *DirectoryAdministrativeUnitsCollectionRequest) Add(ctx context.Context, reqObj *AdministrativeUnit) (resObj *AdministrativeUnit, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
 }
 
 // DeletedItems returns request builder for DirectoryObject collection
@@ -261,6 +370,109 @@ func (r *DirectoryRoleMembersCollectionRequest) Get(ctx context.Context) ([]Dire
 
 // Add performs POST request for DirectoryObject collection
 func (r *DirectoryRoleMembersCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// ScopedMembers returns request builder for ScopedRoleMembership collection
+func (b *DirectoryRoleRequestBuilder) ScopedMembers() *DirectoryRoleScopedMembersCollectionRequestBuilder {
+	bb := &DirectoryRoleScopedMembersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/scopedMembers"
+	return bb
+}
+
+// DirectoryRoleScopedMembersCollectionRequestBuilder is request builder for ScopedRoleMembership collection
+type DirectoryRoleScopedMembersCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ScopedRoleMembership collection
+func (b *DirectoryRoleScopedMembersCollectionRequestBuilder) Request() *DirectoryRoleScopedMembersCollectionRequest {
+	return &DirectoryRoleScopedMembersCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ScopedRoleMembership item
+func (b *DirectoryRoleScopedMembersCollectionRequestBuilder) ID(id string) *ScopedRoleMembershipRequestBuilder {
+	bb := &ScopedRoleMembershipRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DirectoryRoleScopedMembersCollectionRequest is request for ScopedRoleMembership collection
+type DirectoryRoleScopedMembersCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ScopedRoleMembership collection
+func (r *DirectoryRoleScopedMembersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ScopedRoleMembership, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ScopedRoleMembership
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ScopedRoleMembership
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ScopedRoleMembership collection, max N pages
+func (r *DirectoryRoleScopedMembersCollectionRequest) GetN(ctx context.Context, n int) ([]ScopedRoleMembership, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ScopedRoleMembership collection
+func (r *DirectoryRoleScopedMembersCollectionRequest) Get(ctx context.Context) ([]ScopedRoleMembership, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ScopedRoleMembership collection
+func (r *DirectoryRoleScopedMembersCollectionRequest) Add(ctx context.Context, reqObj *ScopedRoleMembership) (resObj *ScopedRoleMembership, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

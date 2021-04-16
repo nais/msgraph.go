@@ -8,7 +8,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/yaegashi/msgraph.go/jsonx"
+	"github.com/nais/msgraph.go/jsonx"
 )
 
 // DeviceRequestBuilder is request builder for Device
@@ -1228,32 +1228,6 @@ func (r *DeviceConfigurationAssignRequest) Post(ctx context.Context) ([]DeviceCo
 }
 
 //
-type DeviceEnrollmentConfigurationSetPriorityRequestBuilder struct{ BaseRequestBuilder }
-
-// SetPriority action undocumented
-func (b *DeviceEnrollmentConfigurationRequestBuilder) SetPriority(reqObj *DeviceEnrollmentConfigurationSetPriorityRequestParameter) *DeviceEnrollmentConfigurationSetPriorityRequestBuilder {
-	bb := &DeviceEnrollmentConfigurationSetPriorityRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/setPriority"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceEnrollmentConfigurationSetPriorityRequest struct{ BaseRequest }
-
-//
-func (b *DeviceEnrollmentConfigurationSetPriorityRequestBuilder) Request() *DeviceEnrollmentConfigurationSetPriorityRequest {
-	return &DeviceEnrollmentConfigurationSetPriorityRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceEnrollmentConfigurationSetPriorityRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
 type DeviceEnrollmentConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
 
 // Assign action undocumented
@@ -1276,6 +1250,32 @@ func (b *DeviceEnrollmentConfigurationAssignRequestBuilder) Request() *DeviceEnr
 
 //
 func (r *DeviceEnrollmentConfigurationAssignRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+type DeviceEnrollmentConfigurationSetPriorityRequestBuilder struct{ BaseRequestBuilder }
+
+// SetPriority action undocumented
+func (b *DeviceEnrollmentConfigurationRequestBuilder) SetPriority(reqObj *DeviceEnrollmentConfigurationSetPriorityRequestParameter) *DeviceEnrollmentConfigurationSetPriorityRequestBuilder {
+	bb := &DeviceEnrollmentConfigurationSetPriorityRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/setPriority"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceEnrollmentConfigurationSetPriorityRequest struct{ BaseRequest }
+
+//
+func (b *DeviceEnrollmentConfigurationSetPriorityRequestBuilder) Request() *DeviceEnrollmentConfigurationSetPriorityRequest {
+	return &DeviceEnrollmentConfigurationSetPriorityRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *DeviceEnrollmentConfigurationSetPriorityRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 

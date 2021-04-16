@@ -36,3 +36,29 @@ func (r *ChannelRequest) Update(ctx context.Context, reqObj *Channel) error {
 func (r *ChannelRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
+
+//
+type ChannelCompleteMigrationRequestBuilder struct{ BaseRequestBuilder }
+
+// CompleteMigration action undocumented
+func (b *ChannelRequestBuilder) CompleteMigration(reqObj *ChannelCompleteMigrationRequestParameter) *ChannelCompleteMigrationRequestBuilder {
+	bb := &ChannelCompleteMigrationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/completeMigration"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ChannelCompleteMigrationRequest struct{ BaseRequest }
+
+//
+func (b *ChannelCompleteMigrationRequestBuilder) Request() *ChannelCompleteMigrationRequest {
+	return &ChannelCompleteMigrationRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *ChannelCompleteMigrationRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}

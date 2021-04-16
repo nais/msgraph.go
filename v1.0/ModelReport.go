@@ -2,7 +2,7 @@
 
 package msgraph
 
-// Report undocumented
+// Report Device Configuration profile History reports.
 type Report struct {
 	// Object is the base model of Report
 	Object
@@ -14,4 +14,12 @@ type Report struct {
 type ReportRoot struct {
 	// Entity is the base model of ReportRoot
 	Entity
+	// DailyPrintUsageByPrinter undocumented
+	DailyPrintUsageByPrinter []PrintUsageByPrinter `json:"dailyPrintUsageByPrinter,omitempty"`
+	// DailyPrintUsageByUser undocumented
+	DailyPrintUsageByUser []PrintUsageByUser `json:"dailyPrintUsageByUser,omitempty"`
+	// MonthlyPrintUsageByPrinter undocumented
+	MonthlyPrintUsageByPrinter []PrintUsageByPrinter `json:"monthlyPrintUsageByPrinter,omitempty"`
+	// MonthlyPrintUsageByUser undocumented
+	MonthlyPrintUsageByUser []PrintUsageByUser `json:"monthlyPrintUsageByUser,omitempty"`
 }

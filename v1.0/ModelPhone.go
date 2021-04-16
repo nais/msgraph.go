@@ -6,12 +6,12 @@ package msgraph
 type Phone struct {
 	// Object is the base model of Phone
 	Object
-	// Type undocumented
-	Type *PhoneType `json:"type,omitempty"`
+	// Language undocumented
+	Language *string `json:"language,omitempty"`
 	// Number undocumented
 	Number *string `json:"number,omitempty"`
 	// Region undocumented
 	Region *string `json:"region,omitempty"`
-	// Language undocumented
-	Language *string `json:"language,omitempty"`
+	// Type undocumented
+	Type *PhoneType `json:"type,omitempty"`
 }

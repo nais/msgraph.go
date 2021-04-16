@@ -8,86 +8,120 @@ import "time"
 type EducationClass struct {
 	// Entity is the base model of EducationClass
 	Entity
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
-	// MailNickname undocumented
-	MailNickname *string `json:"mailNickname,omitempty"`
-	// Description undocumented
-	Description *string `json:"description,omitempty"`
-	// CreatedBy undocumented
-	CreatedBy *IdentitySet `json:"createdBy,omitempty"`
 	// ClassCode undocumented
 	ClassCode *string `json:"classCode,omitempty"`
-	// ExternalName undocumented
-	ExternalName *string `json:"externalName,omitempty"`
+	// Course undocumented
+	Course *EducationCourse `json:"course,omitempty"`
+	// CreatedBy undocumented
+	CreatedBy *IdentitySet `json:"createdBy,omitempty"`
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
 	// ExternalID undocumented
 	ExternalID *string `json:"externalId,omitempty"`
+	// ExternalName undocumented
+	ExternalName *string `json:"externalName,omitempty"`
 	// ExternalSource undocumented
 	ExternalSource *EducationExternalSource `json:"externalSource,omitempty"`
+	// ExternalSourceDetail undocumented
+	ExternalSourceDetail *string `json:"externalSourceDetail,omitempty"`
+	// Grade undocumented
+	Grade *string `json:"grade,omitempty"`
+	// MailNickname undocumented
+	MailNickname *string `json:"mailNickname,omitempty"`
 	// Term undocumented
 	Term *EducationTerm `json:"term,omitempty"`
-	// Schools undocumented
-	Schools []EducationSchool `json:"schools,omitempty"`
-	// Members undocumented
-	Members []EducationUser `json:"members,omitempty"`
-	// Teachers undocumented
-	Teachers []EducationUser `json:"teachers,omitempty"`
 	// Group undocumented
 	Group *Group `json:"group,omitempty"`
+	// Members undocumented
+	Members []EducationUser `json:"members,omitempty"`
+	// Schools undocumented
+	Schools []EducationSchool `json:"schools,omitempty"`
+	// Teachers undocumented
+	Teachers []EducationUser `json:"teachers,omitempty"`
+}
+
+// EducationCourse undocumented
+type EducationCourse struct {
+	// Object is the base model of EducationCourse
+	Object
+	// CourseNumber undocumented
+	CourseNumber *string `json:"courseNumber,omitempty"`
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// ExternalID undocumented
+	ExternalID *string `json:"externalId,omitempty"`
+	// Subject undocumented
+	Subject *string `json:"subject,omitempty"`
+}
+
+// EducationOnPremisesInfo undocumented
+type EducationOnPremisesInfo struct {
+	// Object is the base model of EducationOnPremisesInfo
+	Object
+	// ImmutableID undocumented
+	ImmutableID *string `json:"immutableId,omitempty"`
 }
 
 // EducationOrganization undocumented
 type EducationOrganization struct {
 	// Entity is the base model of EducationOrganization
 	Entity
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
 	// Description undocumented
 	Description *string `json:"description,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
 	// ExternalSource undocumented
 	ExternalSource *EducationExternalSource `json:"externalSource,omitempty"`
+	// ExternalSourceDetail undocumented
+	ExternalSourceDetail *string `json:"externalSourceDetail,omitempty"`
 }
 
 // EducationRoot undocumented
 type EducationRoot struct {
-	// Entity is the base model of EducationRoot
-	Entity
+	// Object is the base model of EducationRoot
+	Object
 	// Classes undocumented
 	Classes []EducationClass `json:"classes,omitempty"`
+	// Me undocumented
+	Me *EducationUser `json:"me,omitempty"`
 	// Schools undocumented
 	Schools []EducationSchool `json:"schools,omitempty"`
 	// Users undocumented
 	Users []EducationUser `json:"users,omitempty"`
-	// Me undocumented
-	Me *EducationUser `json:"me,omitempty"`
 }
 
 // EducationSchool undocumented
 type EducationSchool struct {
 	// EducationOrganization is the base model of EducationSchool
 	EducationOrganization
+	// Address undocumented
+	Address *PhysicalAddress `json:"address,omitempty"`
+	// CreatedBy undocumented
+	CreatedBy *IdentitySet `json:"createdBy,omitempty"`
+	// ExternalID undocumented
+	ExternalID *string `json:"externalId,omitempty"`
+	// ExternalPrincipalID undocumented
+	ExternalPrincipalID *string `json:"externalPrincipalId,omitempty"`
+	// Fax undocumented
+	Fax *string `json:"fax,omitempty"`
+	// HighestGrade undocumented
+	HighestGrade *string `json:"highestGrade,omitempty"`
+	// LowestGrade undocumented
+	LowestGrade *string `json:"lowestGrade,omitempty"`
+	// Phone undocumented
+	Phone *string `json:"phone,omitempty"`
 	// PrincipalEmail undocumented
 	PrincipalEmail *string `json:"principalEmail,omitempty"`
 	// PrincipalName undocumented
 	PrincipalName *string `json:"principalName,omitempty"`
-	// ExternalPrincipalID undocumented
-	ExternalPrincipalID *string `json:"externalPrincipalId,omitempty"`
-	// LowestGrade undocumented
-	LowestGrade *string `json:"lowestGrade,omitempty"`
-	// HighestGrade undocumented
-	HighestGrade *string `json:"highestGrade,omitempty"`
 	// SchoolNumber undocumented
 	SchoolNumber *string `json:"schoolNumber,omitempty"`
-	// ExternalID undocumented
-	ExternalID *string `json:"externalId,omitempty"`
-	// Phone undocumented
-	Phone *string `json:"phone,omitempty"`
-	// Fax undocumented
-	Fax *string `json:"fax,omitempty"`
-	// CreatedBy undocumented
-	CreatedBy *IdentitySet `json:"createdBy,omitempty"`
-	// Address undocumented
-	Address *PhysicalAddress `json:"address,omitempty"`
+	// AdministrativeUnit undocumented
+	AdministrativeUnit *AdministrativeUnit `json:"administrativeUnit,omitempty"`
 	// Classes undocumented
 	Classes []EducationClass `json:"classes,omitempty"`
 	// Users undocumented
@@ -98,64 +132,48 @@ type EducationSchool struct {
 type EducationStudent struct {
 	// Object is the base model of EducationStudent
 	Object
-	// GraduationYear undocumented
-	GraduationYear *string `json:"graduationYear,omitempty"`
-	// Grade undocumented
-	Grade *string `json:"grade,omitempty"`
 	// BirthDate undocumented
 	BirthDate *Date `json:"birthDate,omitempty"`
-	// Gender undocumented
-	Gender *EducationGender `json:"gender,omitempty"`
-	// StudentNumber undocumented
-	StudentNumber *string `json:"studentNumber,omitempty"`
 	// ExternalID undocumented
 	ExternalID *string `json:"externalId,omitempty"`
+	// Gender undocumented
+	Gender *EducationGender `json:"gender,omitempty"`
+	// Grade undocumented
+	Grade *string `json:"grade,omitempty"`
+	// GraduationYear undocumented
+	GraduationYear *string `json:"graduationYear,omitempty"`
+	// StudentNumber undocumented
+	StudentNumber *string `json:"studentNumber,omitempty"`
 }
 
 // EducationTeacher undocumented
 type EducationTeacher struct {
 	// Object is the base model of EducationTeacher
 	Object
-	// TeacherNumber undocumented
-	TeacherNumber *string `json:"teacherNumber,omitempty"`
 	// ExternalID undocumented
 	ExternalID *string `json:"externalId,omitempty"`
+	// TeacherNumber undocumented
+	TeacherNumber *string `json:"teacherNumber,omitempty"`
 }
 
 // EducationTerm undocumented
 type EducationTerm struct {
 	// Object is the base model of EducationTerm
 	Object
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// EndDate undocumented
+	EndDate *Date `json:"endDate,omitempty"`
 	// ExternalID undocumented
 	ExternalID *string `json:"externalId,omitempty"`
 	// StartDate undocumented
 	StartDate *Date `json:"startDate,omitempty"`
-	// EndDate undocumented
-	EndDate *Date `json:"endDate,omitempty"`
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
 }
 
 // EducationUser undocumented
 type EducationUser struct {
 	// Entity is the base model of EducationUser
 	Entity
-	// PrimaryRole undocumented
-	PrimaryRole *EducationUserRole `json:"primaryRole,omitempty"`
-	// MiddleName undocumented
-	MiddleName *string `json:"middleName,omitempty"`
-	// ExternalSource undocumented
-	ExternalSource *EducationExternalSource `json:"externalSource,omitempty"`
-	// ResidenceAddress undocumented
-	ResidenceAddress *PhysicalAddress `json:"residenceAddress,omitempty"`
-	// MailingAddress undocumented
-	MailingAddress *PhysicalAddress `json:"mailingAddress,omitempty"`
-	// Student undocumented
-	Student *EducationStudent `json:"student,omitempty"`
-	// Teacher undocumented
-	Teacher *EducationTeacher `json:"teacher,omitempty"`
-	// CreatedBy undocumented
-	CreatedBy *IdentitySet `json:"createdBy,omitempty"`
 	// AccountEnabled undocumented
 	AccountEnabled *bool `json:"accountEnabled,omitempty"`
 	// AssignedLicenses undocumented
@@ -164,44 +182,66 @@ type EducationUser struct {
 	AssignedPlans []AssignedPlan `json:"assignedPlans,omitempty"`
 	// BusinessPhones undocumented
 	BusinessPhones []string `json:"businessPhones,omitempty"`
+	// CreatedBy undocumented
+	CreatedBy *IdentitySet `json:"createdBy,omitempty"`
 	// Department undocumented
 	Department *string `json:"department,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
+	// ExternalSource undocumented
+	ExternalSource *EducationExternalSource `json:"externalSource,omitempty"`
+	// ExternalSourceDetail undocumented
+	ExternalSourceDetail *string `json:"externalSourceDetail,omitempty"`
 	// GivenName undocumented
 	GivenName *string `json:"givenName,omitempty"`
 	// Mail undocumented
 	Mail *string `json:"mail,omitempty"`
+	// MailingAddress undocumented
+	MailingAddress *PhysicalAddress `json:"mailingAddress,omitempty"`
 	// MailNickname undocumented
 	MailNickname *string `json:"mailNickname,omitempty"`
+	// MiddleName undocumented
+	MiddleName *string `json:"middleName,omitempty"`
 	// MobilePhone undocumented
 	MobilePhone *string `json:"mobilePhone,omitempty"`
+	// OfficeLocation undocumented
+	OfficeLocation *string `json:"officeLocation,omitempty"`
+	// OnPremisesInfo undocumented
+	OnPremisesInfo *EducationOnPremisesInfo `json:"onPremisesInfo,omitempty"`
 	// PasswordPolicies undocumented
 	PasswordPolicies *string `json:"passwordPolicies,omitempty"`
 	// PasswordProfile undocumented
 	PasswordProfile *PasswordProfile `json:"passwordProfile,omitempty"`
-	// OfficeLocation undocumented
-	OfficeLocation *string `json:"officeLocation,omitempty"`
 	// PreferredLanguage undocumented
 	PreferredLanguage *string `json:"preferredLanguage,omitempty"`
+	// PrimaryRole undocumented
+	PrimaryRole *EducationUserRole `json:"primaryRole,omitempty"`
 	// ProvisionedPlans undocumented
 	ProvisionedPlans []ProvisionedPlan `json:"provisionedPlans,omitempty"`
 	// RefreshTokensValidFromDateTime undocumented
 	RefreshTokensValidFromDateTime *time.Time `json:"refreshTokensValidFromDateTime,omitempty"`
+	// ResidenceAddress undocumented
+	ResidenceAddress *PhysicalAddress `json:"residenceAddress,omitempty"`
 	// ShowInAddressList undocumented
 	ShowInAddressList *bool `json:"showInAddressList,omitempty"`
+	// Student undocumented
+	Student *EducationStudent `json:"student,omitempty"`
 	// Surname undocumented
 	Surname *string `json:"surname,omitempty"`
+	// Teacher undocumented
+	Teacher *EducationTeacher `json:"teacher,omitempty"`
 	// UsageLocation undocumented
 	UsageLocation *string `json:"usageLocation,omitempty"`
 	// UserPrincipalName undocumented
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 	// UserType undocumented
 	UserType *string `json:"userType,omitempty"`
-	// Schools undocumented
-	Schools []EducationSchool `json:"schools,omitempty"`
 	// Classes undocumented
 	Classes []EducationClass `json:"classes,omitempty"`
+	// Schools undocumented
+	Schools []EducationSchool `json:"schools,omitempty"`
+	// TaughtClasses undocumented
+	TaughtClasses []EducationClass `json:"taughtClasses,omitempty"`
 	// User undocumented
 	User *User `json:"user,omitempty"`
 }

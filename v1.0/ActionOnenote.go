@@ -8,14 +8,8 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/yaegashi/msgraph.go/jsonx"
+	"github.com/nais/msgraph.go/jsonx"
 )
-
-// OnenotePageOnenotePatchContentRequestParameter undocumented
-type OnenotePageOnenotePatchContentRequestParameter struct {
-	// Commands undocumented
-	Commands []OnenotePatchContentCommand `json:"commands,omitempty"`
-}
 
 // OnenotePageCopyToSectionRequestParameter undocumented
 type OnenotePageCopyToSectionRequestParameter struct {
@@ -27,6 +21,12 @@ type OnenotePageCopyToSectionRequestParameter struct {
 	SiteCollectionID *string `json:"siteCollectionId,omitempty"`
 	// SiteID undocumented
 	SiteID *string `json:"siteId,omitempty"`
+}
+
+// OnenotePageOnenotePatchContentRequestParameter undocumented
+type OnenotePageOnenotePatchContentRequestParameter struct {
+	// Commands undocumented
+	Commands []OnenotePatchContentCommand `json:"commands,omitempty"`
 }
 
 // OnenoteSectionCopyToNotebookRequestParameter undocumented

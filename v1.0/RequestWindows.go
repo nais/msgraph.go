@@ -4,6 +4,39 @@ package msgraph
 
 import "context"
 
+// WindowsHelloForBusinessAuthenticationMethodRequestBuilder is request builder for WindowsHelloForBusinessAuthenticationMethod
+type WindowsHelloForBusinessAuthenticationMethodRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns WindowsHelloForBusinessAuthenticationMethodRequest
+func (b *WindowsHelloForBusinessAuthenticationMethodRequestBuilder) Request() *WindowsHelloForBusinessAuthenticationMethodRequest {
+	return &WindowsHelloForBusinessAuthenticationMethodRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// WindowsHelloForBusinessAuthenticationMethodRequest is request for WindowsHelloForBusinessAuthenticationMethod
+type WindowsHelloForBusinessAuthenticationMethodRequest struct{ BaseRequest }
+
+// Get performs GET request for WindowsHelloForBusinessAuthenticationMethod
+func (r *WindowsHelloForBusinessAuthenticationMethodRequest) Get(ctx context.Context) (resObj *WindowsHelloForBusinessAuthenticationMethod, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for WindowsHelloForBusinessAuthenticationMethod
+func (r *WindowsHelloForBusinessAuthenticationMethodRequest) Update(ctx context.Context, reqObj *WindowsHelloForBusinessAuthenticationMethod) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for WindowsHelloForBusinessAuthenticationMethod
+func (r *WindowsHelloForBusinessAuthenticationMethodRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // WindowsInformationProtectionRequestBuilder is request builder for WindowsInformationProtection
 type WindowsInformationProtectionRequestBuilder struct{ BaseRequestBuilder }
 

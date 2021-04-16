@@ -26,6 +26,8 @@ type ColumnDefinition struct {
 	DisplayName *string `json:"displayName,omitempty"`
 	// EnforceUniqueValues undocumented
 	EnforceUniqueValues *bool `json:"enforceUniqueValues,omitempty"`
+	// Geolocation undocumented
+	Geolocation *GeolocationColumn `json:"geolocation,omitempty"`
 	// Hidden undocumented
 	Hidden *bool `json:"hidden,omitempty"`
 	// Indexed undocumented

@@ -1,6 +1,6 @@
-module github.com/yaegashi/msgraph.go
+module github.com/nais/msgraph.go
 
-go 1.12
+go 1.16
 
 require (
 	github.com/google/uuid v1.1.1

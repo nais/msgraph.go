@@ -34,6 +34,38 @@ var (
 	_TeamsAppDistributionMethodPUnknownFutureValue = TeamsAppDistributionMethodVUnknownFutureValue
 )
 
+// TeamsAppPublishingState undocumented
+type TeamsAppPublishingState string
+
+const (
+	// TeamsAppPublishingStateVSubmitted undocumented
+	TeamsAppPublishingStateVSubmitted TeamsAppPublishingState = "submitted"
+	// TeamsAppPublishingStateVRejected undocumented
+	TeamsAppPublishingStateVRejected TeamsAppPublishingState = "rejected"
+	// TeamsAppPublishingStateVPublished undocumented
+	TeamsAppPublishingStateVPublished TeamsAppPublishingState = "published"
+	// TeamsAppPublishingStateVUnknownFutureValue undocumented
+	TeamsAppPublishingStateVUnknownFutureValue TeamsAppPublishingState = "unknownFutureValue"
+)
+
+var (
+	// TeamsAppPublishingStatePSubmitted is a pointer to TeamsAppPublishingStateVSubmitted
+	TeamsAppPublishingStatePSubmitted = &_TeamsAppPublishingStatePSubmitted
+	// TeamsAppPublishingStatePRejected is a pointer to TeamsAppPublishingStateVRejected
+	TeamsAppPublishingStatePRejected = &_TeamsAppPublishingStatePRejected
+	// TeamsAppPublishingStatePPublished is a pointer to TeamsAppPublishingStateVPublished
+	TeamsAppPublishingStatePPublished = &_TeamsAppPublishingStatePPublished
+	// TeamsAppPublishingStatePUnknownFutureValue is a pointer to TeamsAppPublishingStateVUnknownFutureValue
+	TeamsAppPublishingStatePUnknownFutureValue = &_TeamsAppPublishingStatePUnknownFutureValue
+)
+
+var (
+	_TeamsAppPublishingStatePSubmitted          = TeamsAppPublishingStateVSubmitted
+	_TeamsAppPublishingStatePRejected           = TeamsAppPublishingStateVRejected
+	_TeamsAppPublishingStatePPublished          = TeamsAppPublishingStateVPublished
+	_TeamsAppPublishingStatePUnknownFutureValue = TeamsAppPublishingStateVUnknownFutureValue
+)
+
 // TeamsAsyncOperationStatus undocumented
 type TeamsAsyncOperationStatus string
 

@@ -18,10 +18,10 @@ type WebApplication struct {
 	Object
 	// HomePageURL undocumented
 	HomePageURL *string `json:"homePageUrl,omitempty"`
-	// RedirectUris undocumented
-	RedirectUris []string `json:"redirectUris,omitempty"`
-	// LogoutURL undocumented
-	LogoutURL *string `json:"logoutUrl,omitempty"`
 	// ImplicitGrantSettings undocumented
 	ImplicitGrantSettings *ImplicitGrantSettings `json:"implicitGrantSettings,omitempty"`
+	// LogoutURL undocumented
+	LogoutURL *string `json:"logoutUrl,omitempty"`
+	// RedirectUris undocumented
+	RedirectUris []string `json:"redirectUris,omitempty"`
 }

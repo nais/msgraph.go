@@ -85,3 +85,35 @@ var (
 	_CallStatePTerminated         = CallStateVTerminated
 	_CallStatePUnknownFutureValue = CallStateVUnknownFutureValue
 )
+
+// CallTranscriptionState undocumented
+type CallTranscriptionState string
+
+const (
+	// CallTranscriptionStateVNotStarted undocumented
+	CallTranscriptionStateVNotStarted CallTranscriptionState = "notStarted"
+	// CallTranscriptionStateVActive undocumented
+	CallTranscriptionStateVActive CallTranscriptionState = "active"
+	// CallTranscriptionStateVInactive undocumented
+	CallTranscriptionStateVInactive CallTranscriptionState = "inactive"
+	// CallTranscriptionStateVUnknownFutureValue undocumented
+	CallTranscriptionStateVUnknownFutureValue CallTranscriptionState = "unknownFutureValue"
+)
+
+var (
+	// CallTranscriptionStatePNotStarted is a pointer to CallTranscriptionStateVNotStarted
+	CallTranscriptionStatePNotStarted = &_CallTranscriptionStatePNotStarted
+	// CallTranscriptionStatePActive is a pointer to CallTranscriptionStateVActive
+	CallTranscriptionStatePActive = &_CallTranscriptionStatePActive
+	// CallTranscriptionStatePInactive is a pointer to CallTranscriptionStateVInactive
+	CallTranscriptionStatePInactive = &_CallTranscriptionStatePInactive
+	// CallTranscriptionStatePUnknownFutureValue is a pointer to CallTranscriptionStateVUnknownFutureValue
+	CallTranscriptionStatePUnknownFutureValue = &_CallTranscriptionStatePUnknownFutureValue
+)
+
+var (
+	_CallTranscriptionStatePNotStarted         = CallTranscriptionStateVNotStarted
+	_CallTranscriptionStatePActive             = CallTranscriptionStateVActive
+	_CallTranscriptionStatePInactive           = CallTranscriptionStateVInactive
+	_CallTranscriptionStatePUnknownFutureValue = CallTranscriptionStateVUnknownFutureValue
+)

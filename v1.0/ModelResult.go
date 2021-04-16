@@ -8,8 +8,8 @@ type ResultInfo struct {
 	Object
 	// Code undocumented
 	Code *int `json:"code,omitempty"`
-	// Subcode undocumented
-	Subcode *int `json:"subcode,omitempty"`
 	// Message undocumented
 	Message *string `json:"message,omitempty"`
+	// Subcode undocumented
+	Subcode *int `json:"subcode,omitempty"`
 }

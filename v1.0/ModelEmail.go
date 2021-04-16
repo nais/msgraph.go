@@ -6,8 +6,30 @@ package msgraph
 type EmailAddress struct {
 	// Object is the base model of EmailAddress
 	Object
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
 	// Address undocumented
 	Address *string `json:"address,omitempty"`
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+}
+
+// EmailAuthenticationMethodConfiguration undocumented
+type EmailAuthenticationMethodConfiguration struct {
+	// AuthenticationMethodConfiguration is the base model of EmailAuthenticationMethodConfiguration
+	AuthenticationMethodConfiguration
+	// AllowExternalIDToUseEmailOtp undocumented
+	AllowExternalIDToUseEmailOtp *ExternalEmailOtpState `json:"allowExternalIdToUseEmailOtp,omitempty"`
+	// IncludeTargets undocumented
+	IncludeTargets []AuthenticationMethodTarget `json:"includeTargets,omitempty"`
+}
+
+// EmailFileAssessmentRequestObject undocumented
+type EmailFileAssessmentRequestObject struct {
+	// ThreatAssessmentRequestObject is the base model of EmailFileAssessmentRequestObject
+	ThreatAssessmentRequestObject
+	// ContentData undocumented
+	ContentData *string `json:"contentData,omitempty"`
+	// DestinationRoutingReason undocumented
+	DestinationRoutingReason *MailDestinationRoutingReason `json:"destinationRoutingReason,omitempty"`
+	// RecipientEmail undocumented
+	RecipientEmail *string `json:"recipientEmail,omitempty"`
 }

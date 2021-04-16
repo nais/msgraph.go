@@ -8,7 +8,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/yaegashi/msgraph.go/jsonx"
+	"github.com/nais/msgraph.go/jsonx"
 )
 
 // DriveItem is navigation property
@@ -132,6 +132,13 @@ func (b *SharedDriveItemRequestBuilder) List() *ListRequestBuilder {
 func (b *SharedDriveItemRequestBuilder) ListItem() *ListItemRequestBuilder {
 	bb := &ListItemRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/listItem"
+	return bb
+}
+
+// Permission is navigation property
+func (b *SharedDriveItemRequestBuilder) Permission() *PermissionRequestBuilder {
+	bb := &PermissionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/permission"
 	return bb
 }
 

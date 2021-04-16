@@ -43,3 +43,50 @@ var (
 	_MeetingMessageTypePMeetingTenativelyAccepted = MeetingMessageTypeVMeetingTenativelyAccepted
 	_MeetingMessageTypePMeetingDeclined           = MeetingMessageTypeVMeetingDeclined
 )
+
+// MeetingRequestType undocumented
+type MeetingRequestType string
+
+const (
+	// MeetingRequestTypeVNone undocumented
+	MeetingRequestTypeVNone MeetingRequestType = "none"
+	// MeetingRequestTypeVNewMeetingRequest undocumented
+	MeetingRequestTypeVNewMeetingRequest MeetingRequestType = "newMeetingRequest"
+	// MeetingRequestTypeVFullUpdate undocumented
+	MeetingRequestTypeVFullUpdate MeetingRequestType = "fullUpdate"
+	// MeetingRequestTypeVInformationalUpdate undocumented
+	MeetingRequestTypeVInformationalUpdate MeetingRequestType = "informationalUpdate"
+	// MeetingRequestTypeVSilentUpdate undocumented
+	MeetingRequestTypeVSilentUpdate MeetingRequestType = "silentUpdate"
+	// MeetingRequestTypeVOutdated undocumented
+	MeetingRequestTypeVOutdated MeetingRequestType = "outdated"
+	// MeetingRequestTypeVPrincipalWantsCopy undocumented
+	MeetingRequestTypeVPrincipalWantsCopy MeetingRequestType = "principalWantsCopy"
+)
+
+var (
+	// MeetingRequestTypePNone is a pointer to MeetingRequestTypeVNone
+	MeetingRequestTypePNone = &_MeetingRequestTypePNone
+	// MeetingRequestTypePNewMeetingRequest is a pointer to MeetingRequestTypeVNewMeetingRequest
+	MeetingRequestTypePNewMeetingRequest = &_MeetingRequestTypePNewMeetingRequest
+	// MeetingRequestTypePFullUpdate is a pointer to MeetingRequestTypeVFullUpdate
+	MeetingRequestTypePFullUpdate = &_MeetingRequestTypePFullUpdate
+	// MeetingRequestTypePInformationalUpdate is a pointer to MeetingRequestTypeVInformationalUpdate
+	MeetingRequestTypePInformationalUpdate = &_MeetingRequestTypePInformationalUpdate
+	// MeetingRequestTypePSilentUpdate is a pointer to MeetingRequestTypeVSilentUpdate
+	MeetingRequestTypePSilentUpdate = &_MeetingRequestTypePSilentUpdate
+	// MeetingRequestTypePOutdated is a pointer to MeetingRequestTypeVOutdated
+	MeetingRequestTypePOutdated = &_MeetingRequestTypePOutdated
+	// MeetingRequestTypePPrincipalWantsCopy is a pointer to MeetingRequestTypeVPrincipalWantsCopy
+	MeetingRequestTypePPrincipalWantsCopy = &_MeetingRequestTypePPrincipalWantsCopy
+)
+
+var (
+	_MeetingRequestTypePNone                = MeetingRequestTypeVNone
+	_MeetingRequestTypePNewMeetingRequest   = MeetingRequestTypeVNewMeetingRequest
+	_MeetingRequestTypePFullUpdate          = MeetingRequestTypeVFullUpdate
+	_MeetingRequestTypePInformationalUpdate = MeetingRequestTypeVInformationalUpdate
+	_MeetingRequestTypePSilentUpdate        = MeetingRequestTypeVSilentUpdate
+	_MeetingRequestTypePOutdated            = MeetingRequestTypeVOutdated
+	_MeetingRequestTypePPrincipalWantsCopy  = MeetingRequestTypeVPrincipalWantsCopy
+)

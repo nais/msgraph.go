@@ -8,18 +8,18 @@ type Invitation struct {
 	Entity
 	// InvitedUserDisplayName undocumented
 	InvitedUserDisplayName *string `json:"invitedUserDisplayName,omitempty"`
-	// InvitedUserType undocumented
-	InvitedUserType *string `json:"invitedUserType,omitempty"`
 	// InvitedUserEmailAddress undocumented
 	InvitedUserEmailAddress *string `json:"invitedUserEmailAddress,omitempty"`
 	// InvitedUserMessageInfo undocumented
 	InvitedUserMessageInfo *InvitedUserMessageInfo `json:"invitedUserMessageInfo,omitempty"`
-	// SendInvitationMessage undocumented
-	SendInvitationMessage *bool `json:"sendInvitationMessage,omitempty"`
-	// InviteRedirectURL undocumented
-	InviteRedirectURL *string `json:"inviteRedirectUrl,omitempty"`
+	// InvitedUserType undocumented
+	InvitedUserType *string `json:"invitedUserType,omitempty"`
 	// InviteRedeemURL undocumented
 	InviteRedeemURL *string `json:"inviteRedeemUrl,omitempty"`
+	// InviteRedirectURL undocumented
+	InviteRedirectURL *string `json:"inviteRedirectUrl,omitempty"`
+	// SendInvitationMessage undocumented
+	SendInvitationMessage *bool `json:"sendInvitationMessage,omitempty"`
 	// Status undocumented
 	Status *string `json:"status,omitempty"`
 	// InvitedUser undocumented

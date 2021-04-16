@@ -6,20 +6,22 @@ package msgraph
 type AuditActivityInitiator struct {
 	// Object is the base model of AuditActivityInitiator
 	Object
-	// User undocumented
-	User *UserIdentity `json:"user,omitempty"`
 	// App undocumented
 	App *AppIdentity `json:"app,omitempty"`
+	// User undocumented
+	User *UserIdentity `json:"user,omitempty"`
 }
 
 // AuditLogRoot undocumented
 type AuditLogRoot struct {
 	// Entity is the base model of AuditLogRoot
 	Entity
-	// SignIns undocumented
-	SignIns []SignIn `json:"signIns,omitempty"`
 	// DirectoryAudits undocumented
 	DirectoryAudits []DirectoryAudit `json:"directoryAudits,omitempty"`
+	// Provisioning undocumented
+	Provisioning []ProvisioningObjectSummary `json:"provisioning,omitempty"`
 	// RestrictedSignIns undocumented
 	RestrictedSignIns []RestrictedSignIn `json:"restrictedSignIns,omitempty"`
+	// SignIns undocumented
+	SignIns []SignIn `json:"signIns,omitempty"`
 }

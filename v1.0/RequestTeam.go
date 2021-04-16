@@ -38,6 +38,32 @@ func (r *TeamRequest) Delete(ctx context.Context) error {
 }
 
 //
+type TeamArchiveRequestBuilder struct{ BaseRequestBuilder }
+
+// Archive action undocumented
+func (b *TeamRequestBuilder) Archive(reqObj *TeamArchiveRequestParameter) *TeamArchiveRequestBuilder {
+	bb := &TeamArchiveRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/archive"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type TeamArchiveRequest struct{ BaseRequest }
+
+//
+func (b *TeamArchiveRequestBuilder) Request() *TeamArchiveRequest {
+	return &TeamArchiveRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *TeamArchiveRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
 type TeamCloneRequestBuilder struct{ BaseRequestBuilder }
 
 // Clone action undocumented
@@ -64,28 +90,54 @@ func (r *TeamCloneRequest) Post(ctx context.Context) error {
 }
 
 //
-type TeamArchiveRequestBuilder struct{ BaseRequestBuilder }
+type TeamCompleteMigrationRequestBuilder struct{ BaseRequestBuilder }
 
-// Archive action undocumented
-func (b *TeamRequestBuilder) Archive(reqObj *TeamArchiveRequestParameter) *TeamArchiveRequestBuilder {
-	bb := &TeamArchiveRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/archive"
+// CompleteMigration action undocumented
+func (b *TeamRequestBuilder) CompleteMigration(reqObj *TeamCompleteMigrationRequestParameter) *TeamCompleteMigrationRequestBuilder {
+	bb := &TeamCompleteMigrationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/completeMigration"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type TeamArchiveRequest struct{ BaseRequest }
+type TeamCompleteMigrationRequest struct{ BaseRequest }
 
 //
-func (b *TeamArchiveRequestBuilder) Request() *TeamArchiveRequest {
-	return &TeamArchiveRequest{
+func (b *TeamCompleteMigrationRequestBuilder) Request() *TeamCompleteMigrationRequest {
+	return &TeamCompleteMigrationRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-func (r *TeamArchiveRequest) Post(ctx context.Context) error {
+func (r *TeamCompleteMigrationRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+type TeamSendActivityNotificationRequestBuilder struct{ BaseRequestBuilder }
+
+// SendActivityNotification action undocumented
+func (b *TeamRequestBuilder) SendActivityNotification(reqObj *TeamSendActivityNotificationRequestParameter) *TeamSendActivityNotificationRequestBuilder {
+	bb := &TeamSendActivityNotificationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/sendActivityNotification"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type TeamSendActivityNotificationRequest struct{ BaseRequest }
+
+//
+func (b *TeamSendActivityNotificationRequestBuilder) Request() *TeamSendActivityNotificationRequest {
+	return &TeamSendActivityNotificationRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *TeamSendActivityNotificationRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 

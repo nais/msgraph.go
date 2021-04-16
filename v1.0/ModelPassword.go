@@ -14,24 +14,24 @@ type PasswordCredential struct {
 	DisplayName *string `json:"displayName,omitempty"`
 	// EndDateTime undocumented
 	EndDateTime *time.Time `json:"endDateTime,omitempty"`
-	// KeyID undocumented
-	KeyID *UUID `json:"keyId,omitempty"`
-	// StartDateTime undocumented
-	StartDateTime *time.Time `json:"startDateTime,omitempty"`
-	// SecretText undocumented
-	SecretText *string `json:"secretText,omitempty"`
 	// Hint undocumented
 	Hint *string `json:"hint,omitempty"`
+	// KeyID undocumented
+	KeyID *UUID `json:"keyId,omitempty"`
+	// SecretText undocumented
+	SecretText *string `json:"secretText,omitempty"`
+	// StartDateTime undocumented
+	StartDateTime *time.Time `json:"startDateTime,omitempty"`
 }
 
 // PasswordProfile undocumented
 type PasswordProfile struct {
 	// Object is the base model of PasswordProfile
 	Object
-	// Password undocumented
-	Password *string `json:"password,omitempty"`
 	// ForceChangePasswordNextSignIn undocumented
 	ForceChangePasswordNextSignIn *bool `json:"forceChangePasswordNextSignIn,omitempty"`
 	// ForceChangePasswordNextSignInWithMFA undocumented
 	ForceChangePasswordNextSignInWithMFA *bool `json:"forceChangePasswordNextSignInWithMfa,omitempty"`
+	// Password undocumented
+	Password *string `json:"password,omitempty"`
 }

@@ -8,13 +8,20 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/yaegashi/msgraph.go/jsonx"
+	"github.com/nais/msgraph.go/jsonx"
 )
 
 // WindowsInformationProtectionAssignRequestParameter undocumented
 type WindowsInformationProtectionAssignRequestParameter struct {
 	// Assignments undocumented
 	Assignments []TargetedManagedAppPolicyAssignment `json:"assignments,omitempty"`
+}
+
+// Device is navigation property
+func (b *WindowsHelloForBusinessAuthenticationMethodRequestBuilder) Device() *DeviceRequestBuilder {
+	bb := &DeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/device"
+	return bb
 }
 
 // Assignments returns request builder for TargetedManagedAppPolicyAssignment collection

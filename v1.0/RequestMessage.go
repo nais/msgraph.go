@@ -71,109 +71,28 @@ func (r *MessageRuleRequest) Delete(ctx context.Context) error {
 }
 
 //
-type MessageCreateReplyRequestBuilder struct{ BaseRequestBuilder }
+type MessageForwardRequestBuilder struct{ BaseRequestBuilder }
 
-// CreateReply action undocumented
-func (b *MessageRequestBuilder) CreateReply(reqObj *MessageCreateReplyRequestParameter) *MessageCreateReplyRequestBuilder {
-	bb := &MessageCreateReplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/createReply"
+// Forward action undocumented
+func (b *MessageRequestBuilder) Forward(reqObj *MessageForwardRequestParameter) *MessageForwardRequestBuilder {
+	bb := &MessageForwardRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/forward"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type MessageCreateReplyRequest struct{ BaseRequest }
+type MessageForwardRequest struct{ BaseRequest }
 
 //
-func (b *MessageCreateReplyRequestBuilder) Request() *MessageCreateReplyRequest {
-	return &MessageCreateReplyRequest{
+func (b *MessageForwardRequestBuilder) Request() *MessageForwardRequest {
+	return &MessageForwardRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-func (r *MessageCreateReplyRequest) Post(ctx context.Context) (resObj *Message, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
-}
-
-//
-type MessageCreateReplyAllRequestBuilder struct{ BaseRequestBuilder }
-
-// CreateReplyAll action undocumented
-func (b *MessageRequestBuilder) CreateReplyAll(reqObj *MessageCreateReplyAllRequestParameter) *MessageCreateReplyAllRequestBuilder {
-	bb := &MessageCreateReplyAllRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/createReplyAll"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MessageCreateReplyAllRequest struct{ BaseRequest }
-
-//
-func (b *MessageCreateReplyAllRequestBuilder) Request() *MessageCreateReplyAllRequest {
-	return &MessageCreateReplyAllRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *MessageCreateReplyAllRequest) Post(ctx context.Context) (resObj *Message, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
-}
-
-//
-type MessageCreateForwardRequestBuilder struct{ BaseRequestBuilder }
-
-// CreateForward action undocumented
-func (b *MessageRequestBuilder) CreateForward(reqObj *MessageCreateForwardRequestParameter) *MessageCreateForwardRequestBuilder {
-	bb := &MessageCreateForwardRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/createForward"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MessageCreateForwardRequest struct{ BaseRequest }
-
-//
-func (b *MessageCreateForwardRequestBuilder) Request() *MessageCreateForwardRequest {
-	return &MessageCreateForwardRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *MessageCreateForwardRequest) Post(ctx context.Context) (resObj *Message, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
-}
-
-//
-type MessageSendRequestBuilder struct{ BaseRequestBuilder }
-
-// Send action undocumented
-func (b *MessageRequestBuilder) Send(reqObj *MessageSendRequestParameter) *MessageSendRequestBuilder {
-	bb := &MessageSendRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/send"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MessageSendRequest struct{ BaseRequest }
-
-//
-func (b *MessageSendRequestBuilder) Request() *MessageSendRequest {
-	return &MessageSendRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *MessageSendRequest) Post(ctx context.Context) error {
+func (r *MessageForwardRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
@@ -232,6 +151,87 @@ func (r *MessageMoveRequest) Post(ctx context.Context) (resObj *Message, err err
 }
 
 //
+type MessageCreateForwardRequestBuilder struct{ BaseRequestBuilder }
+
+// CreateForward action undocumented
+func (b *MessageRequestBuilder) CreateForward(reqObj *MessageCreateForwardRequestParameter) *MessageCreateForwardRequestBuilder {
+	bb := &MessageCreateForwardRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/createForward"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MessageCreateForwardRequest struct{ BaseRequest }
+
+//
+func (b *MessageCreateForwardRequestBuilder) Request() *MessageCreateForwardRequest {
+	return &MessageCreateForwardRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *MessageCreateForwardRequest) Post(ctx context.Context) (resObj *Message, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
+	return
+}
+
+//
+type MessageCreateReplyRequestBuilder struct{ BaseRequestBuilder }
+
+// CreateReply action undocumented
+func (b *MessageRequestBuilder) CreateReply(reqObj *MessageCreateReplyRequestParameter) *MessageCreateReplyRequestBuilder {
+	bb := &MessageCreateReplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/createReply"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MessageCreateReplyRequest struct{ BaseRequest }
+
+//
+func (b *MessageCreateReplyRequestBuilder) Request() *MessageCreateReplyRequest {
+	return &MessageCreateReplyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *MessageCreateReplyRequest) Post(ctx context.Context) (resObj *Message, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
+	return
+}
+
+//
+type MessageCreateReplyAllRequestBuilder struct{ BaseRequestBuilder }
+
+// CreateReplyAll action undocumented
+func (b *MessageRequestBuilder) CreateReplyAll(reqObj *MessageCreateReplyAllRequestParameter) *MessageCreateReplyAllRequestBuilder {
+	bb := &MessageCreateReplyAllRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/createReplyAll"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MessageCreateReplyAllRequest struct{ BaseRequest }
+
+//
+func (b *MessageCreateReplyAllRequestBuilder) Request() *MessageCreateReplyAllRequest {
+	return &MessageCreateReplyAllRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *MessageCreateReplyAllRequest) Post(ctx context.Context) (resObj *Message, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
+	return
+}
+
+//
 type MessageReplyRequestBuilder struct{ BaseRequestBuilder }
 
 // Reply action undocumented
@@ -284,27 +284,27 @@ func (r *MessageReplyAllRequest) Post(ctx context.Context) error {
 }
 
 //
-type MessageForwardRequestBuilder struct{ BaseRequestBuilder }
+type MessageSendRequestBuilder struct{ BaseRequestBuilder }
 
-// Forward action undocumented
-func (b *MessageRequestBuilder) Forward(reqObj *MessageForwardRequestParameter) *MessageForwardRequestBuilder {
-	bb := &MessageForwardRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/forward"
+// Send action undocumented
+func (b *MessageRequestBuilder) Send(reqObj *MessageSendRequestParameter) *MessageSendRequestBuilder {
+	bb := &MessageSendRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/send"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type MessageForwardRequest struct{ BaseRequest }
+type MessageSendRequest struct{ BaseRequest }
 
 //
-func (b *MessageForwardRequestBuilder) Request() *MessageForwardRequest {
-	return &MessageForwardRequest{
+func (b *MessageSendRequestBuilder) Request() *MessageSendRequest {
+	return &MessageSendRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-func (r *MessageForwardRequest) Post(ctx context.Context) error {
+func (r *MessageSendRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

@@ -14,6 +14,8 @@ type KeyCredential struct {
 	DisplayName *string `json:"displayName,omitempty"`
 	// EndDateTime undocumented
 	EndDateTime *time.Time `json:"endDateTime,omitempty"`
+	// Key undocumented
+	Key *Binary `json:"key,omitempty"`
 	// KeyID undocumented
 	KeyID *UUID `json:"keyId,omitempty"`
 	// StartDateTime undocumented
@@ -22,8 +24,6 @@ type KeyCredential struct {
 	Type *string `json:"type,omitempty"`
 	// Usage undocumented
 	Usage *string `json:"usage,omitempty"`
-	// Key undocumented
-	Key *Binary `json:"key,omitempty"`
 }
 
 // KeyValue undocumented
@@ -36,7 +36,7 @@ type KeyValue struct {
 	Value *string `json:"value,omitempty"`
 }
 
-// KeyValuePair undocumented
+// KeyValuePair Key value pair for storing custom settings
 type KeyValuePair struct {
 	// Object is the base model of KeyValuePair
 	Object

@@ -8,7 +8,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/yaegashi/msgraph.go/jsonx"
+	"github.com/nais/msgraph.go/jsonx"
 )
 
 // TeamsAppInstallationUpgradeRequestParameter undocumented
@@ -116,6 +116,13 @@ func (r *TeamsAppAppDefinitionsCollectionRequest) Get(ctx context.Context) ([]Te
 func (r *TeamsAppAppDefinitionsCollectionRequest) Add(ctx context.Context, reqObj *TeamsAppDefinition) (resObj *TeamsAppDefinition, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// Bot is navigation property
+func (b *TeamsAppDefinitionRequestBuilder) Bot() *TeamworkBotRequestBuilder {
+	bb := &TeamworkBotRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/bot"
+	return bb
 }
 
 // TeamsApp is navigation property

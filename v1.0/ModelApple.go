@@ -16,12 +16,12 @@ type ApplePushNotificationCertificate struct {
 	Entity
 	// AppleIdentifier Apple Id of the account used to create the MDM push certificate.
 	AppleIdentifier *string `json:"appleIdentifier,omitempty"`
-	// TopicIdentifier Topic Id.
-	TopicIdentifier *string `json:"topicIdentifier,omitempty"`
-	// LastModifiedDateTime Last modified date and time for Apple push notification certificate.
-	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
-	// ExpirationDateTime The expiration date and time for Apple push notification certificate.
-	ExpirationDateTime *time.Time `json:"expirationDateTime,omitempty"`
 	// Certificate undocumented
 	Certificate *string `json:"certificate,omitempty"`
+	// ExpirationDateTime The expiration date and time for Apple push notification certificate.
+	ExpirationDateTime *time.Time `json:"expirationDateTime,omitempty"`
+	// LastModifiedDateTime Last modified date and time for Apple push notification certificate.
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// TopicIdentifier Topic Id.
+	TopicIdentifier *string `json:"topicIdentifier,omitempty"`
 }
